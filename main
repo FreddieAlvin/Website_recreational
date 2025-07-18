@@ -215,28 +215,71 @@
     </div>
   </nav>
   <div class="overlay">
-    <div class="parallax-section">
+    <!-- Parallax section 1 -->
+    <div class="parallax-section" data-bg="images/photo1.jpg">
       <div class="parallax-content">
         <h1 id="main-title">Tuna Universitária do Porto</h1>
-        <p id="main-desc">
+        <p>
           Datam do século XIX as primeiras notícias da Tuna Académica do Porto.
-
-O Orfeon Académico do Porto é fundado em 1912 e, na década de 20, Tuna e Orfeão apresentam-se diversas vezes em conjunto, nomeadamente em Madrid frente a El-Rei de Espanha e em apoteótica Digressão a Barcelona, celebrizada no livro “Do Atlântico ao Mediterrâneo”, de Parente de Figueiredo. É a partir do ano de 1928 que Tuna e Orfeão se apresentam aglutinados sob o nome “Tuna e Orfeão Académicos do Porto”.
-
-Em 1937, reorganizada, e fazendo já parte integrante do Orfeão Académico da Universidade do Porto, toma a designação de “Tuna Universitária do Porto”, passando a admitir apenas alunos da Universidade do Porto.
-
-Em 1960, alguns orfeonistas, desejosos de reorganizar a Tuna Universitária, organizam um grupo com o nome de “Orquestra Típica”. No entanto em 1961, esta adopta o nome de “Tuna do Orfeão Universitário do Porto”, gravando dois EP’s sob a reputada etiqueta ORFEU, ocasião que marcou a primeira gravação do tema de 1937 “Amores de Estudante” e que constituiu um enormíssimo sucesso de vendas.
-
-Em meados de 80, a Tuna Universitária do Porto, na altura constituída por elementos de ambos os géneros, é retomada, sob forte inspiração dos mesmos, inaugurando-se um novo período marcado pelo primeiro festival de tunas nacional – o FITU – Festival Internacional de Tunas Universitárias “Cidade do Porto” – e pelas gravações de “Acordes, Harpejos, Tainadas… e Beijos” em 1991, “VII FITU” em 1994, “Academia” em 1995, “Um Percurso” em 1995 e “Concerto de Apresentação da Queima das Fitas” em 2000. Entretanto, a Tuna apresenta-se em África, América do Norte, América do Sul e na Ásia.
-
-A Universitária do Porto explora o ideário latino-americano quer ao nível do repertório bem como na introdução de instrumentos típicos dessa expressão. Sempre precursora e paradigmática, a Universitária do Porto faz por ser uma referência musical e cultural, fiel e digna representante da cidade que a viu nascer nos finais do século XIX.
-
-Continuar a perpetuar a excelência musical por todo o mundo na busca de novos sons, novos palcos e novos projectos é o grande objectivo do século XXI para este grupo que se vos apresenta e saúda.
+        </p>
+      </div>
+    </div>
+    <!-- Parallax section 2 -->
+    <div class="parallax-section" data-bg="images/photo2.jpg">
+      <div class="parallax-content">
+        <p>
+          O Orfeon Académico do Porto é fundado em 1912 e, na década de 20, Tuna e Orfeão apresentam-se diversas vezes em conjunto, nomeadamente em Madrid frente a El-Rei de Espanha e em apoteótica Digressão a Barcelona, celebrizada no livro “Do Atlântico ao Mediterrâneo”, de Parente de Figueiredo. É a partir do ano de 1928 que Tuna e Orfeão se apresentam aglutinados sob o nome “Tuna e Orfeão Académicos do Porto”.
+        </p>
+      </div>
+    </div>
+    <!-- Parallax section 3 -->
+    <div class="parallax-section" data-bg="images/photo3.jpg">
+      <div class="parallax-content">
+        <p>
+          Em 1937, reorganizada, e fazendo já parte integrante do Orfeão Académico da Universidade do Porto, toma a designação de “Tuna Universitária do Porto”, passando a admitir apenas alunos da Universidade do Porto.
+        </p>
+      </div>
+    </div>
+    <!-- Parallax section 4 -->
+    <div class="parallax-section" data-bg="images/photo4.jpg">
+      <div class="parallax-content">
+        <p>
+          Em 1960, alguns orfeonistas, desejosos de reorganizar a Tuna Universitária, organizam um grupo com o nome de “Orquestra Típica”. No entanto em 1961, esta adopta o nome de “Tuna do Orfeão Universitário do Porto”, gravando dois EP’s sob a reputada etiqueta ORFEU, ocasião que marcou a primeira gravação do tema de 1937 “Amores de Estudante” e que constituiu um enormíssimo sucesso de vendas.
+        </p>
+      </div>
+    </div>
+    <!-- Parallax section 5 -->
+    <div class="parallax-section" data-bg="images/photo5.jpg">
+      <div class="parallax-content">
+        <p>
+          Em meados de 80, a Tuna Universitária do Porto, na altura constituída por elementos de ambos os géneros, é retomada, sob forte inspiração dos mesmos, inaugurando-se um novo período marcado pelo primeiro festival de tunas nacional – o FITU – Festival Internacional de Tunas Universitárias “Cidade do Porto” – e pelas gravações de “Acordes, Harpejos, Tainadas… e Beijos” em 1991, “VII FITU” em 1994, “Academia” em 1995, “Um Percurso” em 1995 e “Concerto de Apresentação da Queima das Fitas” em 2000. Entretanto, a Tuna apresenta-se em África, América do Norte, América do Sul e na Ásia.
+        </p>
+      </div>
+    </div>
+    <!-- Parallax section 6 -->
+    <div class="parallax-section" data-bg="images/photo6.jpg">
+      <div class="parallax-content">
+        <p>
+          A Universitária do Porto explora o ideário latino-americano quer ao nível do repertório bem como na introdução de instrumentos típicos dessa expressão. Sempre precursora e paradigmática, a Universitária do Porto faz por ser uma referência musical e cultural, fiel e digna representante da cidade que a viu nascer nos finais do século XIX.
+        </p>
+      </div>
+    </div>
+    <!-- Parallax section 7 -->
+    <div class="parallax-section" data-bg="images/photo7.jpg">
+      <div class="parallax-content">
+        <p>
+          Continuar a perpetuar a excelência musical por todo o mundo na busca de novos sons, novos palcos e novos projectos é o grande objectivo do século XXI para este grupo que se vos apresenta e saúda.
         </p>
       </div>
     </div>
   </div>
   <script>
+    // Set background images from data-bg attribute
+    document.querySelectorAll('.parallax-section').forEach(section => {
+      const bg = section.getAttribute('data-bg');
+      if (bg) section.style.backgroundImage = `url('${bg}')`;
+    });
+
     const translations = {
       pt: {
         title: "Tuna Universitária do Porto",
@@ -262,7 +305,7 @@ Continuar a perpetuar a excelência musical por todo o mundo na busca de novos s
 
     function setLanguage(lang) {
       document.getElementById('main-title').textContent = translations[lang].title;
-      document.getElementById('main-desc').textContent = translations[lang].desc;
+      // You can expand this to update each paragraph if you add translations for each
     }
 
     function toggleLanguageDropdown(el) {
