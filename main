@@ -4,47 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tuna Universitária do Porto</title>
+  <link rel="icon" type="image/jpeg" href="images/Brasao.jpeg" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <style>
-    body {
+    body, html {
+      height: 100%;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('https://source.unsplash.com/1600x900/?university,campus') no-repeat center center fixed;
-      background-size: cover;
-    }
-    .overlay {
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 50px;
-      min-height: 100vh;
+      font-family: "Lato", Arial, sans-serif;
+      color: #222;
+      line-height: 1.8;
     }
     nav {
       background-color: #222;
-      padding: 30px 10px 30px 10px; /* top right bottom left */
+      padding: 30px 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: relative;
-      min-height: 70px; /* Make the bar taller */
+      min-height: 70px;
     }
     .nav-left {
       display: flex;
-      justify-content: flex-start; /* aligns items to the left */
-      gap: 0px; /* More spacing */
-      position: static; /* Remove absolute positioning */
-      left: unset;
-      transform: unset;
+      gap: 0px;
     }
     .nav-right {
       display: flex;
       gap: 0px;
       align-items: center;
-      position: static; /* Remove absolute positioning */
-      right: unset;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
-      padding: 8px 16px; 
+      padding: 8px 16px;
       border-radius: 6px;
       font-size: 1.15em;
       transition: background 0.2s;
@@ -123,30 +115,13 @@
       border-radius: 3px;
       border: 1px solid #fff;
     }
-    .content {
-      max-width: 800px;
-      margin: 40px auto;
-      text-align: center;
-    }
-    #main-desc {
-      text-align: left;
-      font-size: 1.15em;
-      line-height: 1.7;
-      color: #222;
-      background: rgba(255,255,255,0.95);
-      padding: 24px 28px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      margin-top: 24px;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    .parallax-section {
-      background-image: url('https://source.unsplash.com/1600x900/?university,campus');
-      min-height: 400px;
+    /* Parallax sections */
+    .bgimg {
       background-attachment: fixed;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      min-height: 400px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -173,6 +148,23 @@
       color: #222;
       font-family: 'Segoe UI', Arial, sans-serif;
     }
+    .content-section {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+    }
+    @media only screen and (max-device-width: 1600px) {
+      .bgimg {
+        background-attachment: scroll;
+        min-height: 400px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -183,29 +175,28 @@
       <a href="tours.html">Digressões</a>
       <a href="festivals.html">Festivais</a>
       <a href="merch.html">Merch</a>
-      
     </div>
     <div class="nav-right">
       <div class="language-selector" tabindex="0" onclick="toggleLanguageDropdown(this)">
         <span>Idioma</span>
         <div class="language-dropdown">
-          <button class="language-option" onclick="setLanguage('pt');event.stopPropagation();">
+          <button class="language-option" onclick="event.stopPropagation();">
             <img class="language-flag" src="https://flagcdn.com/pt.svg" alt="Português">
             Português
           </button>
-          <button class="language-option" onclick="setLanguage('en');event.stopPropagation();">
+          <button class="language-option" onclick="event.stopPropagation();">
             <img class="language-flag" src="https://flagcdn.com/gb.svg" alt="English">
             English
           </button>
-          <button class="language-option" onclick="setLanguage('es');event.stopPropagation();">
+          <button class="language-option" onclick="event.stopPropagation();">
             <img class="language-flag" src="https://flagcdn.com/es.svg" alt="Español">
             Español
           </button>
-          <button class="language-option" onclick="setLanguage('fr');event.stopPropagation();">
+          <button class="language-option" onclick="event.stopPropagation();">
             <img class="language-flag" src="https://flagcdn.com/fr.svg" alt="Français">
             Français
           </button>
-          <button class="language-option" onclick="setLanguage('de');event.stopPropagation();">
+          <button class="language-option" onclick="event.stopPropagation();">
             <img class="language-flag" src="https://flagcdn.com/de.svg" alt="Deutsch">
             Deutsch
           </button>
@@ -214,100 +205,74 @@
       <a href="login.html" class="login-btn">Entrar</a>
     </div>
   </nav>
-  <div class="overlay">
-    <!-- Parallax section 1 -->
-    <div class="parallax-section" data-bg="images/photo1.jpg">
-      <div class="parallax-content">
-        <h1 id="main-title">Tuna Universitária do Porto</h1>
-        <p>
-          Datam do século XIX as primeiras notícias da Tuna Académica do Porto.
-        </p>
-      </div>
-    </div>
-    <!-- Parallax section 2 -->
-    <div class="parallax-section" data-bg="images/photo2.jpg">
-      <div class="parallax-content">
-        <p>
-          O Orfeon Académico do Porto é fundado em 1912 e, na década de 20, Tuna e Orfeão apresentam-se diversas vezes em conjunto, nomeadamente em Madrid frente a El-Rei de Espanha e em apoteótica Digressão a Barcelona, celebrizada no livro “Do Atlântico ao Mediterrâneo”, de Parente de Figueiredo. É a partir do ano de 1928 que Tuna e Orfeão se apresentam aglutinados sob o nome “Tuna e Orfeão Académicos do Porto”.
-        </p>
-      </div>
-    </div>
-    <!-- Parallax section 3 -->
-    <div class="parallax-section" data-bg="images/photo3.jpg">
-      <div class="parallax-content">
-        <p>
-          Em 1937, reorganizada, e fazendo já parte integrante do Orfeão Académico da Universidade do Porto, toma a designação de “Tuna Universitária do Porto”, passando a admitir apenas alunos da Universidade do Porto.
-        </p>
-      </div>
-    </div>
-    <!-- Parallax section 4 -->
-    <div class="parallax-section" data-bg="images/photo4.jpg">
-      <div class="parallax-content">
-        <p>
-          Em 1960, alguns orfeonistas, desejosos de reorganizar a Tuna Universitária, organizam um grupo com o nome de “Orquestra Típica”. No entanto em 1961, esta adopta o nome de “Tuna do Orfeão Universitário do Porto”, gravando dois EP’s sob a reputada etiqueta ORFEU, ocasião que marcou a primeira gravação do tema de 1937 “Amores de Estudante” e que constituiu um enormíssimo sucesso de vendas.
-        </p>
-      </div>
-    </div>
-    <!-- Parallax section 5 -->
-    <div class="parallax-section" data-bg="images/photo5.jpg">
-      <div class="parallax-content">
-        <p>
-          Em meados de 80, a Tuna Universitária do Porto, na altura constituída por elementos de ambos os géneros, é retomada, sob forte inspiração dos mesmos, inaugurando-se um novo período marcado pelo primeiro festival de tunas nacional – o FITU – Festival Internacional de Tunas Universitárias “Cidade do Porto” – e pelas gravações de “Acordes, Harpejos, Tainadas… e Beijos” em 1991, “VII FITU” em 1994, “Academia” em 1995, “Um Percurso” em 1995 e “Concerto de Apresentação da Queima das Fitas” em 2000. Entretanto, a Tuna apresenta-se em África, América do Norte, América do Sul e na Ásia.
-        </p>
-      </div>
-    </div>
-    <!-- Parallax section 6 -->
-    <div class="parallax-section" data-bg="images/photo6.jpg">
-      <div class="parallax-content">
-        <p>
-          A Universitária do Porto explora o ideário latino-americano quer ao nível do repertório bem como na introdução de instrumentos típicos dessa expressão. Sempre precursora e paradigmática, a Universitária do Porto faz por ser uma referência musical e cultural, fiel e digna representante da cidade que a viu nascer nos finais do século XIX.
-        </p>
-      </div>
-    </div>
-    <!-- Parallax section 7 -->
-    <div class="parallax-section" data-bg="images/photo7.jpg">
-      <div class="parallax-content">
-        <p>
-          Continuar a perpetuar a excelência musical por todo o mundo na busca de novos sons, novos palcos e novos projectos é o grande objectivo do século XXI para este grupo que se vos apresenta e saúda.
-        </p>
-      </div>
+
+  <!-- Parallax section 1 (image) -->
+  <div class="bgimg" style="background-image: url('images/photo1.jpg');">
+    <div class="parallax-content">
+      <h1>Title 1</h1>
     </div>
   </div>
+  <!-- Content section 1 (text) -->
+  <div class="content-section">
+    <p>O Orfeon Académico do Porto é fundado em 1912 e, na década de 20, Tuna e Orfeão apresentam-se diversas vezes em conjunto, nomeadamente em Madrid frente a El-Rei de Espanha e em apoteótica Digressão a Barcelona, celebrizada no livro “Do Atlântico ao Mediterrâneo”, de Parente de Figueiredo. É a partir do ano de 1928 que Tuna e Orfeão se apresentam aglutinados sob o nome “Tuna e Orfeão Académicos do Porto”.</p>
+  </div>
+
+  <!-- Parallax section 2 (image) -->
+  <div class="bgimg" style="background-image: url('TUP_MURCIA_2024_01-768x506.jpg');">
+    <div class="parallax-content">
+      <h1>Title 2</h1>
+    </div>
+  </div>
+  <!-- Content section 2 (text) -->
+  <div class="content-section">
+    <p>Em 1937, reorganizada, e fazendo já parte integrante do Orfeão Académico da Universidade do Porto, toma a designação de “Tuna Universitária do Porto”, passando a admitir apenas alunos da Universidade do Porto. </p>
+  </div>
+
+  <!-- Parallax section 3 (image) -->
+  <div class="bgimg" style="background-image: url('images/Tuna_Universitária_do_Porto_1937.jpg');">
+    <div class="parallax-content">
+      <h1>Title 3</h1>
+    </div>
+  </div>
+  <!-- Content section 3 (text) -->
+  <div class="content-section">
+    <p>Em 1960, alguns orfeonistas, desejosos de reorganizar a Tuna Universitária, organizam um grupo com o nome de “Orquestra Típica”. No entanto em 1961, esta adopta o nome de “Tuna do Orfeão Universitário do Porto”, gravando dois EP’s sob a reputada etiqueta ORFEU, ocasião que marcou a primeira gravação do tema de 1937 “Amores de Estudante” e que constituiu um enormíssimo sucesso de vendas.</p>
+  </div>
+
+  <!-- Parallax section 4 (image) -->
+  <div class="bgimg" style="background-image: url('images/photo4.jpg');">
+    <div class="parallax-content">
+      <h1>Title 4</h1>
+    </div>
+  </div>
+  <!-- Content section 4 (text) -->
+  <div class="content-section">
+    <p>Em meados de 80, a Tuna Universitária do Porto, na altura constituída por elementos de ambos os géneros, é retomada, sob forte inspiração dos mesmos, inaugurando-se um novo período marcado pelo primeiro festival de tunas nacional – o FITU – Festival Internacional de Tunas Universitárias “Cidade do Porto” – e pelas gravações de “Acordes, Harpejos, Tainadas… e Beijos” em 1991, “VII FITU” em 1994, “Academia” em 1995, “Um Percurso” em 1995 e “Concerto de Apresentação da Queima das Fitas” em 2000. Entretanto, a Tuna apresenta-se em África, América do Norte, América do Sul e na Ásia. </p>
+  </div>
+
+  <!-- Parallax section 5 (image) -->
+  <div class="bgimg" style="background-image: url('images/photo5.jpg');">
+    <div class="parallax-content">
+      <h1>Title 5</h1>
+    </div>
+  </div>
+  <!-- Content section 5 (text) -->
+  <div class="content-section">
+    <p>A Universitária do Porto explora o ideário latino-americano quer ao nível do repertório bem como na introdução de instrumentos típicos dessa expressão. Sempre precursora e paradigmática, a Universitária do Porto faz por ser uma referência musical e cultural, fiel e digna representante da cidade que a viu nascer nos finais do século XIX. </p>
+  </div>
+
+  <!-- Parallax section 6 (image) -->
+  <div class="bgimg" style="background-image: url('images/photo6.jpg');">
+    <div class="parallax-content">
+      <h1>Title 6</h1>
+    </div>
+  </div>
+  <!-- Content section 6 (text) -->
+  <div class="content-section">
+    <p>Continuar a perpetuar a excelência musical por todo o mundo na busca de novos sons, novos palcos e novos projectos é o grande objectivo do século XXI para este grupo que se vos apresenta e saúda.</p>
+  </div>
+
   <script>
-    // Set background images from data-bg attribute
-    document.querySelectorAll('.parallax-section').forEach(section => {
-      const bg = section.getAttribute('data-bg');
-      if (bg) section.style.backgroundImage = `url('${bg}')`;
-    });
-
-    const translations = {
-      pt: {
-        title: "Tuna Universitária do Porto",
-        desc: "A nossa instituição dedica-se à excelência académica, ao envolvimento com a comunidade e a uma vida estudantil vibrante. Explore as nossas visitas, participe em festivais e descubra os nossos produtos. Os estudantes podem iniciar sessão para acesso personalizado."
-      },
-      en: {
-        title: "University Tuna of Porto",
-        desc: "Our institution is dedicated to academic excellence, community engagement, and a vibrant student life. Explore our tours, join festivals, and discover our products. Students can log in for personalized access."
-      },
-      es: {
-        title: "Tuna Universitaria de Oporto",
-        desc: "Nuestra institución se dedica a la excelencia académica, la participación comunitaria y una vida estudiantil vibrante. Explora nuestras visitas, participa en festivales y descubre nossos produtos. Los estudiantes pueden iniciar sesión para acceso personalizado."
-      },
-      fr: {
-        title: "Tuna Universitaire de Porto",
-        desc: "Notre institution est dédiée à l'excellence académique, à l'engagement communautaire et à une vie étudiante dynamique. Explorez nos visites, participez à des festivals et découvrez nos produits. Les étudiants peuvent se connecter pour un accès personnalisé."
-      },
-      de: {
-        title: "Universitäts-Tuna von Porto",
-        desc: "Unsere Institution widmet sich akademischer Exzellenz, gesellschaftlichem Engagement und einem lebendigen Studentenleben. Entdecken Sie unsere Besichtigungen, nehmen Sie an Festivals teil und entdecken Sie unsere Produkte. Studierende können sich für einen personalisierten Zugang anmelden."
-      }
-    };
-
-    function setLanguage(lang) {
-      document.getElementById('main-title').textContent = translations[lang].title;
-      // You can expand this to update each paragraph if you add translations for each
-    }
-
     function toggleLanguageDropdown(el) {
       el.classList.toggle('active');
       document.addEventListener('click', function handler(e) {
