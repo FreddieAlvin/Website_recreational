@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal Universitário</title>
+  <title>Tuna Universitária do Porto</title>
   <style>
     body {
       margin: 0;
@@ -18,66 +18,262 @@
     }
     nav {
       background-color: #222;
-      padding: 10px 20px;
+      padding: 30px 10px 30px 10px; /* top right bottom left */
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      min-height: 70px; /* Make the bar taller */
     }
     .nav-left {
       display: flex;
-      gap: 20px;
+      justify-content: flex-start; /* aligns items to the left */
+      gap: 0px; /* More spacing */
+      position: static; /* Remove absolute positioning */
+      left: unset;
+      transform: unset;
     }
     .nav-right {
       display: flex;
-      gap: 20px;
+      gap: 0px;
       align-items: center;
+      position: static; /* Remove absolute positioning */
+      right: unset;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      padding: 8px 16px; 
+      border-radius: 6px;
+      font-size: 1.15em;
+      transition: background 0.2s;
     }
     nav a:hover {
       text-decoration: underline;
+      background-color: #333;
+    }
+    .login-btn {
+      background: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      border: none;
+      transition: background 0.2s;
+      font-size: 1.15em;
+      cursor: pointer;
+    }
+    .login-btn:hover {
+      background-color: #333;
+      text-decoration: underline;
     }
     .language-selector {
+      position: relative;
       color: white;
+      font-size: 1.15em;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+    }
+    .language-selector.active,
+    .language-selector:active {
+      background-color: #333;
+    }
+    .language-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background: #222;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      min-width: 160px;
+      z-index: 10;
+    }
+    .language-selector.active .language-dropdown {
+      display: block;
+    }
+    .language-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      color: white;
+      cursor: pointer;
+      border: none;
+      background: none;
+      width: 100%;
+      font-size: 1em;
+    }
+    .language-option:hover {
+      background: #333;
+    }
+    .language-flag {
+      width: 22px;
+      height: 16px;
+      object-fit: cover;
+      border-radius: 3px;
+      border: 1px solid #fff;
     }
     .content {
       max-width: 800px;
       margin: 40px auto;
       text-align: center;
     }
+    #main-desc {
+      text-align: left;
+      font-size: 1.15em;
+      line-height: 1.7;
+      color: #222;
+      background: rgba(255,255,255,0.95);
+      padding: 24px 28px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      margin-top: 24px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .parallax-section {
+      background-image: url('https://source.unsplash.com/1600x900/?university,campus');
+      min-height: 400px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .parallax-content {
+      background: rgba(255,255,255,0.92);
+      padding: 40px 32px;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .parallax-content h1 {
+      margin-bottom: 24px;
+      font-size: 2.2em;
+      color: #222;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .parallax-content p {
+      text-align: left;
+      font-size: 1.15em;
+      line-height: 1.7;
+      color: #222;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-left">
-      <a href="tours.html">Visitas</a>
+      <a href="calendar.html">Calendário</a>
+      <a href="albums.html">Albúns</a>
+      <a href="tours.html">Digressões</a>
       <a href="festivals.html">Festivais</a>
       <a href="merch.html">Merch</a>
+      
     </div>
     <div class="nav-right">
-      <a href="login.html">Estudante</a>
-      <div class="language-selector">
-        <label for="language">Idioma:</label>
-        <select id="language" name="language">
-          <option value="pt" selected>Português</option>
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-        </select>
+      <div class="language-selector" tabindex="0" onclick="toggleLanguageDropdown(this)">
+        <span>Idioma</span>
+        <div class="language-dropdown">
+          <button class="language-option" onclick="setLanguage('pt');event.stopPropagation();">
+            <img class="language-flag" src="https://flagcdn.com/pt.svg" alt="Português">
+            Português
+          </button>
+          <button class="language-option" onclick="setLanguage('en');event.stopPropagation();">
+            <img class="language-flag" src="https://flagcdn.com/gb.svg" alt="English">
+            English
+          </button>
+          <button class="language-option" onclick="setLanguage('es');event.stopPropagation();">
+            <img class="language-flag" src="https://flagcdn.com/es.svg" alt="Español">
+            Español
+          </button>
+          <button class="language-option" onclick="setLanguage('fr');event.stopPropagation();">
+            <img class="language-flag" src="https://flagcdn.com/fr.svg" alt="Français">
+            Français
+          </button>
+          <button class="language-option" onclick="setLanguage('de');event.stopPropagation();">
+            <img class="language-flag" src="https://flagcdn.com/de.svg" alt="Deutsch">
+            Deutsch
+          </button>
+        </div>
       </div>
+      <a href="login.html" class="login-btn">Entrar</a>
     </div>
   </nav>
   <div class="overlay">
-    <div class="content">
-      <h1>Bem-vindo à Nossa Universidade</h1>
-      <p>
-        A nossa instituição dedica-se à excelência académica, ao envolvimento com a comunidade e a uma vida estudantil vibrante. Explore as nossas visitas, participe em festivais e descubra os nossos produtos. Os estudantes podem iniciar sessão para acesso personalizado.
-      </p>
+    <div class="parallax-section">
+      <div class="parallax-content">
+        <h1 id="main-title">Tuna Universitária do Porto</h1>
+        <p id="main-desc">
+          Datam do século XIX as primeiras notícias da Tuna Académica do Porto.
+
+O Orfeon Académico do Porto é fundado em 1912 e, na década de 20, Tuna e Orfeão apresentam-se diversas vezes em conjunto, nomeadamente em Madrid frente a El-Rei de Espanha e em apoteótica Digressão a Barcelona, celebrizada no livro “Do Atlântico ao Mediterrâneo”, de Parente de Figueiredo. É a partir do ano de 1928 que Tuna e Orfeão se apresentam aglutinados sob o nome “Tuna e Orfeão Académicos do Porto”.
+
+Em 1937, reorganizada, e fazendo já parte integrante do Orfeão Académico da Universidade do Porto, toma a designação de “Tuna Universitária do Porto”, passando a admitir apenas alunos da Universidade do Porto.
+
+Em 1960, alguns orfeonistas, desejosos de reorganizar a Tuna Universitária, organizam um grupo com o nome de “Orquestra Típica”. No entanto em 1961, esta adopta o nome de “Tuna do Orfeão Universitário do Porto”, gravando dois EP’s sob a reputada etiqueta ORFEU, ocasião que marcou a primeira gravação do tema de 1937 “Amores de Estudante” e que constituiu um enormíssimo sucesso de vendas.
+
+Em meados de 80, a Tuna Universitária do Porto, na altura constituída por elementos de ambos os géneros, é retomada, sob forte inspiração dos mesmos, inaugurando-se um novo período marcado pelo primeiro festival de tunas nacional – o FITU – Festival Internacional de Tunas Universitárias “Cidade do Porto” – e pelas gravações de “Acordes, Harpejos, Tainadas… e Beijos” em 1991, “VII FITU” em 1994, “Academia” em 1995, “Um Percurso” em 1995 e “Concerto de Apresentação da Queima das Fitas” em 2000. Entretanto, a Tuna apresenta-se em África, América do Norte, América do Sul e na Ásia.
+
+A Universitária do Porto explora o ideário latino-americano quer ao nível do repertório bem como na introdução de instrumentos típicos dessa expressão. Sempre precursora e paradigmática, a Universitária do Porto faz por ser uma referência musical e cultural, fiel e digna representante da cidade que a viu nascer nos finais do século XIX.
+
+Continuar a perpetuar a excelência musical por todo o mundo na busca de novos sons, novos palcos e novos projectos é o grande objectivo do século XXI para este grupo que se vos apresenta e saúda.
+        </p>
+      </div>
     </div>
   </div>
+  <script>
+    const translations = {
+      pt: {
+        title: "Tuna Universitária do Porto",
+        desc: "A nossa instituição dedica-se à excelência académica, ao envolvimento com a comunidade e a uma vida estudantil vibrante. Explore as nossas visitas, participe em festivais e descubra os nossos produtos. Os estudantes podem iniciar sessão para acesso personalizado."
+      },
+      en: {
+        title: "University Tuna of Porto",
+        desc: "Our institution is dedicated to academic excellence, community engagement, and a vibrant student life. Explore our tours, join festivals, and discover our products. Students can log in for personalized access."
+      },
+      es: {
+        title: "Tuna Universitaria de Oporto",
+        desc: "Nuestra institución se dedica a la excelencia académica, la participación comunitaria y una vida estudiantil vibrante. Explora nuestras visitas, participa en festivales y descubre nossos produtos. Los estudiantes pueden iniciar sesión para acceso personalizado."
+      },
+      fr: {
+        title: "Tuna Universitaire de Porto",
+        desc: "Notre institution est dédiée à l'excellence académique, à l'engagement communautaire et à une vie étudiante dynamique. Explorez nos visites, participez à des festivals et découvrez nos produits. Les étudiants peuvent se connecter pour un accès personnalisé."
+      },
+      de: {
+        title: "Universitäts-Tuna von Porto",
+        desc: "Unsere Institution widmet sich akademischer Exzellenz, gesellschaftlichem Engagement und einem lebendigen Studentenleben. Entdecken Sie unsere Besichtigungen, nehmen Sie an Festivals teil und entdecken Sie unsere Produkte. Studierende können sich für einen personalisierten Zugang anmelden."
+      }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById('main-title').textContent = translations[lang].title;
+      document.getElementById('main-desc').textContent = translations[lang].desc;
+    }
+
+    function toggleLanguageDropdown(el) {
+      el.classList.toggle('active');
+      document.addEventListener('click', function handler(e) {
+        if (!el.contains(e.target)) {
+          el.classList.remove('active');
+          document.removeEventListener('click', handler);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
