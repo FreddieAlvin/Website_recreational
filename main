@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Universitário</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://source.unsplash.com/1600x900/?university,campus') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 50px;
+      min-height: 100vh;
+    }
+    nav {
+      background-color: #222;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-left {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-right {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .language-selector {
+      color: white;
+    }
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <a href="tours.html">Visitas</a>
+      <a href="festivals.html">Festivais</a>
+      <a href="merch.html">Merch</a>
+    </div>
+    <div class="nav-right">
+      <a href="login.html">Estudante</a>
+      <div class="language-selector">
+        <label for="language">Idioma:</label>
+        <select id="language" name="language">
+          <option value="pt" selected>Português</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+  <div class="overlay">
+    <div class="content">
+      <h1>Bem-vindo à Nossa Universidade</h1>
+      <p>
+        A nossa instituição dedica-se à excelência académica, ao envolvimento com a comunidade e a uma vida estudantil vibrante. Explore as nossas visitas, participe em festivais e descubra os nossos produtos. Os estudantes podem iniciar sessão para acesso personalizado.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
