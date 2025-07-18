@@ -45,9 +45,9 @@
       transition: background 0.2s;
     }
     nav a:hover {
-      text-decoration: underline;
       background-color: #333;
     }
+
     .login-btn {
       background: none;
       color: white;
@@ -59,10 +59,7 @@
       font-size: 1.15em;
       cursor: pointer;
     }
-    .login-btn:hover {
-      background-color: #333;
-      text-decoration: underline;
-    }
+
     .language-selector {
       position: relative;
       color: white;
@@ -78,6 +75,11 @@
       display: flex;
       align-items: center;
     }
+
+    .language-selector:hover {
+      background-color: #333;
+    }
+
     .language-selector.active,
     .language-selector:active {
       background-color: #333;
@@ -181,22 +183,28 @@
       color: #ffd700;
       text-decoration: none;
     }
-    .contact-section a:hover {
-      text-decoration: underline;
-    }
+    
     .contact-section .fa-brands {
       margin: 0 10px;
       color: #ffd700;
-      font-size: 2.4em; /* Slightly bigger */
+      font-size: 2.4em; 
       vertical-align: middle;
       transition: color 0.2s;
     }
     .contact-section .fa-brands:hover {
-      color: #1DB954; /* Spotify green for hover */
+      color: #efe252a7; 
     }
-    .contact-section .fa-spotify {
-      color: #1DB954;
+
+    .contact-link {
+      color: #ffd700;
+      text-decoration: none;
+      transition: color 0.2s;
     }
+    .contact-link:hover {
+      color: #efe252a7;
+    }
+
+
     @media only screen and (max-device-width: 1600px) {
       .bgimg {
         background-attachment: scroll;
@@ -208,15 +216,15 @@
 <body>
   <nav>
     <div class="nav-left">
-      <a href="calendar.html">Calendário</a>
-      <a href="albums.html">Albúns</a>
-      <a href="tours.html">Digressões</a>
-      <a href="festivals.html">Festivais</a>
-      <a href="merch.html">Merch</a>
+      <a href="calendar.html" id="nav-calendar">Calendário</a>
+      <a href="albums.html" id="nav-albums">Albúns</a>
+      <a href="tours.html" id="nav-tours">Digressões</a>
+      <a href="festivals.html" id="nav-festivals">Festivais</a>
+      <a href="merch.html" id="nav-merch">Merch</a>
     </div>
     <div class="nav-right">
       <div class="language-selector" tabindex="0" onclick="toggleLanguageDropdown(this)">
-        <span>Idioma</span>
+        <span id="lang-label">Idioma</span>
         <div class="language-dropdown">
           <button class="language-option" onclick="event.stopPropagation();">
             <img class="language-flag" src="https://flagcdn.com/pt.svg" alt="Português">
@@ -240,7 +248,7 @@
           </button>
         </div>
       </div>
-      <a href="login.html" class="login-btn">Entrar</a>
+      <a href="login.html" id="nav-login">Entrar</a>
     </div>
   </nav>
 
@@ -314,18 +322,19 @@
   <div class="contact-section" style="max-width:none; width:100%; margin:0px auto;">
     <h2>Contactos Tuna Universitária do Porto</h2>
     <p>
-      <strong>Email:</strong> <a href="mailto:orfeao@orfeao.up.pt">orfeao@orfeao.up.pt</a><br>
+      <strong>Email:</strong>
+      <a href="mailto:orfeao@orfeao.up.pt" class="contact-link">orfeao@orfeao.up.pt</a><br>
       <strong>Morada:</strong> Rua dos Bragas, 289, 4050-123 Porto<br>
       <strong>Telefone:</strong> (+351) 915 260 290/1<br>
-      <strong>Formulário para pedido de actuações:</strong>
-      <a href="https://orfeao.up.pt/marcacoes" target="_blank">Clique aqui para marcar uma actuação</a>
+      <strong>Pedido de actuações:</strong>
+      <a href="https://orfeao.up.pt/marcacoes" target="_blank" class="contact-link">Clique aqui para marcar uma actuação</a>
     </p>
+
     <div style="margin-top: 32px; display: flex; justify-content: center; gap: 20px;">
       <a href="https://www.facebook.com/tunauniversitariaporto" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
       <a href="https://www.instagram.com/tunauniversitariaporto" target="_blank"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.youtube.com/@tunauniversitariaporto" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://open.spotify.com/artist/6Mick5EJL1v9cBJz57Xmdp?si=vdTAT4-nRwunu0vA3RsRXQ" target="_blank">
-        <i class="fa-brands fa-spotify" style="color: #ffd700;"></i>
+      <a href="https://open.spotify.com/artist/6Mick5EJL1v9cBJz57Xmdp?si=vdTAT4-nRwunu0vA3RsRXQ" target="_blank"><i class="fa-brands fa-spotify"></i></a>
       </a>
     </div>
   </div>
@@ -341,5 +350,16 @@
       });
     }
   </script>
+  <div id="google_translate_element" style="display: none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'pt',
+        includedLanguages: 'en,es,fr,de,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
