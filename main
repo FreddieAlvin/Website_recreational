@@ -214,43 +214,50 @@
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-left">
-      <a href="calendar.html" id="nav-calendar">Calendário</a>
-      <a href="albums.html" id="nav-albums">Albúns</a>
-      <a href="tours.html" id="nav-tours">Digressões</a>
-      <a href="festivals.html" id="nav-festivals">Festivais</a>
-      <a href="merch.html" id="nav-merch">Merch</a>
-    </div>
-    <div class="nav-right">
-      <div class="language-selector" tabindex="0" onclick="toggleLanguageDropdown(this)">
-        <span id="lang-label">Idioma</span>
-        <div class="language-dropdown">
-          <button class="language-option" onclick="event.stopPropagation();">
-            <img class="language-flag" src="https://flagcdn.com/pt.svg" alt="Português">
-            Português
-          </button>
-          <button class="language-option" onclick="event.stopPropagation();">
-            <img class="language-flag" src="https://flagcdn.com/gb.svg" alt="English">
-            English
-          </button>
-          <button class="language-option" onclick="event.stopPropagation();">
-            <img class="language-flag" src="https://flagcdn.com/es.svg" alt="Español">
-            Español
-          </button>
-          <button class="language-option" onclick="event.stopPropagation();">
-            <img class="language-flag" src="https://flagcdn.com/fr.svg" alt="Français">
-            Français
-          </button>
-          <button class="language-option" onclick="event.stopPropagation();">
-            <img class="language-flag" src="https://flagcdn.com/de.svg" alt="Deutsch">
-            Deutsch
-          </button>
-        </div>
+  <div class="wrapper">
+    <header>
+      <img src="images/Brasao.jpeg" alt="Brasão" class="background" />
+      <img src="images/foreground-image.jpg" alt="Foreground" class="foreground" />
+      <h1 class="title">Tuna Universitária do Porto</h1>
+    </header>
+
+    <nav>
+      <div class="nav-left">
+        <a href="calendar.html" id="nav-calendar">Calendário</a>
+        <a href="albums.html" id="nav-albums">Albúns</a>
+        <a href="tours.html" id="nav-tours">Digressões</a>
+        <a href="festivals.html" id="nav-festivals">Festivais</a>
+        <a href="merch.html" id="nav-merch">Merch</a>
       </div>
-      <a href="login.html" id="nav-login">Entrar</a>
-    </div>
-  </nav>
+      <div class="nav-right">
+        <div class="language-selector" tabindex="0" onclick="toggleLanguageDropdown(this)">
+          <span id="lang-label">Idioma</span>
+          <div class="language-dropdown">
+            <button class="language-option" onclick="event.stopPropagation();">
+              <img class="language-flag" src="https://flagcdn.com/pt.svg" alt="Português" />
+              Português
+            </button>
+            <button class="language-option" onclick="event.stopPropagation();">
+              <img class="language-flag" src="https://flagcdn.com/gb.svg" alt="English" />
+              English
+            </button>
+            <button class="language-option" onclick="event.stopPropagation();">
+              <img class="language-flag" src="https://flagcdn.com/es.svg" alt="Español" />
+              Español
+            </button>
+            <button class="language-option" onclick="event.stopPropagation();">
+              <img class="language-flag" src="https://flagcdn.com/fr.svg" alt="Français" />
+              Français
+            </button>
+            <button class="language-option" onclick="event.stopPropagation();">
+              <img class="language-flag" src="https://flagcdn.com/de.svg" alt="Deutsch" />
+              Deutsch
+            </button>
+          </div>
+        </div>
+        <a href="login.html" id="nav-login">Entrar</a>
+      </div>
+    </nav>
 
   <!-- Parallax section 1 (image) -->
   <div class="bgimg" style="background-image: url('images/photo1.jpg');">
