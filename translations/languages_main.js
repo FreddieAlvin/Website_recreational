@@ -1,6 +1,7 @@
 const translations = {
   pt: {
     idioms: 'Idioma',
+    start: 'Início',
     calendar: 'Calendário',
     albums: 'Álbuns',
     tours: 'Digressões',
@@ -34,6 +35,7 @@ const translations = {
 
   en: {
     idioms: 'Language',
+    start: 'Start',
     calendar: 'Calendar',
     albums: 'Albums',
     tours: 'Tours',
@@ -67,6 +69,7 @@ const translations = {
 
   es: {
     idioms: 'Idioma',
+    start: 'Inicio',
     calendar: 'Calendario',
     albums: 'Álbumes',
     tours: 'Giras',
@@ -100,6 +103,7 @@ const translations = {
 
   fr: {
     idioms: 'Langue',
+    start: 'Accueil',
     calendar: 'Calendrier',
     albums: 'Albums',
     tours: 'Tournées',
@@ -133,6 +137,7 @@ const translations = {
 
   de: {
     idioms: 'Sprache',
+    start: 'Startseite',
     calendar: 'Kalender',   
     albums: 'Alben',
     tours: 'Touren',
@@ -166,6 +171,7 @@ const translations = {
 
   it: {
     idioms: 'Lingua',
+    start: 'Inizio',
     calendar: 'Calendario',
     albums: 'Album',
     tours: 'Tour',

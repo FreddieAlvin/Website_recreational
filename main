@@ -1,243 +1,243 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tuna Universitária do Porto</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuna Universitária do Porto</title>
 
-  <!-- Fonts & Libraries -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <!-- Fonts & Libraries -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="images/TUP_Icon.png" type="image/png" />
-  
-  <style>
-    /* Custom font face */
-    @font-face {
-      font-family: 'custom_font';
-      src: url('fonts/custom_font.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
+    <!-- Favicon -->
+    <link rel="icon" href="images/TUP_Icon.png" type="image/png" />
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: "Lato", Arial, sans-serif;
-      color: #ffffff;
-      background-color: #111;
-      line-height: 1.8;
-    }
-
-    nav {
-      background-color: #111;
-      padding: 30px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .nav-left, .nav-right {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 10px 18px;
-      border-radius: 6px;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    nav a:hover {
-      background-color: #333;
-      transform: scale(1.05);
-    }
-
-    .language-selector {
-      position: relative;
-      color: white;
-      font-weight: bold;
-      padding: 8px 16px;
-      border-radius: 6px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-
-    .language-dropdown {
-      display: none;
-      position: absolute;
-      right: 0;
-      top: 100%;
-      background: #111;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      min-width: 160px;
-      z-index: 10;
-    }
-
-    .language-selector.active .language-dropdown {
-      display: block;
-    }
-
-    .language-option {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 20px;
-      color: white;
-      background: none;
-      border: none;
-      width: 100%;
-      cursor: pointer;
-    }
-
-    .language-option:hover {
-      background: #333;
-    }
-
-    .language-flag {
-      width: 22px;
-      height: 16px;
-      border-radius: 3px;
-      border: 1px solid #fff;
-    }
-
-    .bgimg {
-      position: relative;
-      background-size: cover;          /* cover entire container */
-      background-attachment: fixed;
-      background-position: center center;
-      background-repeat: no-repeat;
-      height: 100vh;                   /* full viewport height */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background-color: #111;          /* fallback color */
-    }
-
-    .bgimg::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1;
-    }
-
-    .parallax-content {
-      background: rgba(255, 255, 255, 0);
-      padding: 60px 50px;
-      border-radius: 16px;
-      max-width: 800px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-      color: #ffffff;
-    }
-
-    .typewriter {
-      font-family: 'custom_font';
-      font-size: 3.5em;
-      font-weight: bold;
-      color: #ffffff;
-      display: inline-block;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid #ffffff;
-    }
-
-    .content-section {
-      max-width: 900px;
-      margin: 0 auto 40px;
-      padding: 0;
-      background: none;
-      border-radius: 0;
-      box-shadow: none;
-      font-size: 1.50em;
-      line-height: 1.6;
-      color: #ffffff;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;  /* vertical center */
-      align-items: center;      /* horizontal center */
-      min-height: 200px;        /* or any height you want */
-      text-align: center;
-    }
-
-    .contact-section {
-      background: #222;
-      color: #ffffff;
-      text-align: center;
-      padding: 10px 0px;  
-      margin-top: -10px; 
-    }
-
-    .contact-link {
-      color: #ffd700;
-      text-decoration: none;
-    }
-
-    .contact-section .fa-brands {
-      margin: 0 12px;
-      color: #ffd700;
-      font-size: 2.6em;
-      transition: transform 0.3s;
-    }
-
-    .contact-section .fa-brands:hover {
-      transform: scale(1.1);
-    }
-
-    /* UPDATED: Use custom font here */
-    .plain-title {
-      font-family: 'custom_font';
-      font-size: 3.5em;      /* big text */
-      font-weight: bold;
-      color: #ffffff;        /* keep your color */
-      text-align: center;
-      margin: 0;
-      border: none;          /* no border effects */
-      animation: none !important; /* disable any animation */
-      white-space: normal;   /* default wrapping */
-    }
-
-    @media (max-width: 768px) {
-      .bgimg {
-        background-attachment: scroll;
+    <style>
+      @font-face {
+        font-family: 'custom_font';
+        src: url('fonts/custom_font.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
       }
-    }
-  </style>
-</head>
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Lato", Arial, sans-serif;
+        color: #ffffff;
+        background-color: #111;
+        line-height: 1.8;
+      }
+
+      nav {
+        background-color: #111;
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 18px;
+        border-radius: 6px;
+        transition: background 0.3s, transform 0.2s;
+      }
+
+      nav a:hover {
+        background-color: #333;
+        transform: scale(1.05);
+      }
+
+      .language-selector {
+        position: relative;
+        color: white;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+
+      .language-dropdown {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background: #111;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        min-width: 160px;
+        z-index: 10;
+      }
+
+      .language-selector.active .language-dropdown {
+        display: block;
+      }
+
+      .language-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        color: white;
+        background: none;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .language-option:hover {
+        background: #333;
+      }
+
+      .language-flag {
+        width: 22px;
+        height: 16px;
+        border-radius: 3px;
+        border: 1px solid #fff;
+      }
+
+      .bgimg {
+        position: relative;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: #111;
+      }
+
+      .bgimg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      .parallax-content {
+        background: rgba(255, 255, 255, 0);
+        padding: 60px 50px;
+        border-radius: 16px;
+        max-width: 800px;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        color: #ffffff;
+      }
+
+      .typewriter {
+        font-family: 'custom_font';
+        font-size: 3.5em;
+        font-weight: bold;
+        color: #ffffff;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid #ffffff;
+      }
+
+      .content-section {
+        max-width: 900px;
+        margin: 0 auto 40px;
+        padding: 0;
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 1.5em;
+        line-height: 1.6;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
+        text-align: center;
+      }
+
+      .contact-section {
+        background: #222;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px 0px;
+        margin-top: -10px;
+      }
+
+      .contact-link {
+        color: #ffd700;
+        text-decoration: none;
+      }
+
+      .contact-section .fa-brands {
+        margin: 0 12px;
+        color: #ffd700;
+        font-size: 2.6em;
+        transition: transform 0.3s;
+      }
+
+      .contact-section .fa-brands:hover {
+        transform: scale(1.1);
+      }
+
+      .plain-title {
+        font-family: 'custom_font';
+        font-size: 3.5em;
+        font-weight: bold;
+        color: #ffffff;
+        text-align: center;
+        margin: 0;
+        border: none;
+        animation: none !important;
+        white-space: normal;
+      }
+
+      @media (max-width: 768px) {
+        .bgimg {
+          background-attachment: scroll;
+        }
+      }
+    </style>
+  </head>
 
 <body>
-
   <nav>
     <div class="nav-left">
-      <a href="calendar.html" data-i18n="calendar">Calendário</a>
-      <a href="albums.html" data-i18n="albums">Álbuns</a>
-      <a href="tours.html" data-i18n="tours">Digressões</a>
-      <a href="festivals.html" data-i18n="festivals">Festivais</a>
-      <a href="merch.html" data-i18n="merch">Merch</a>
+      <a href="main" data-i18n="start">Início</a>
+      <a href="calendar" data-i18n="calendar">Calendário</a>
+      <a href="tours" data-i18n="tours">Digressões</a>
+      <a href="festivals" data-i18n="festivals">Festivais</a>
+      <a href="merch" data-i18n="merch">Merch</a>
     </div>
     <div class="nav-right">
       <div class="language-selector" onclick="toggleLanguageDropdown(this)">
