@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-   <!-- Favicon -->
+  <!-- Favicon -->
   <link rel="icon" href="images/TUP_Icon.png" type="image/png" />
   
   <style>
@@ -38,7 +38,7 @@
 
     nav {
       background-color: #111;
-      padding: 20px 30px;
+      padding: 30px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -233,24 +233,25 @@
 
   <nav>
     <div class="nav-left">
-      <a href="calendar.html">Calendário</a>
-      <a href="albums.html">Álbuns</a>
-      <a href="tours.html">Digressões</a>
-      <a href="festivals.html">Festivais</a>
-      <a href="merch.html">Merch</a>
+      <a href="calendar.html" data-i18n="calendar">Calendário</a>
+      <a href="albums.html" data-i18n="albums">Álbuns</a>
+      <a href="tours.html" data-i18n="tours">Digressões</a>
+      <a href="festivals.html" data-i18n="festivals">Festivais</a>
+      <a href="merch.html" data-i18n="merch">Merch</a>
     </div>
     <div class="nav-right">
       <div class="language-selector" onclick="toggleLanguageDropdown(this)">
-        <span>Idioma</span>
+        <span data-i18n="idioms">Idioma</span>
         <div class="language-dropdown">
           <button class="language-option"><img class="language-flag" src="https://flagcdn.com/pt.svg" />Português</button>
           <button class="language-option"><img class="language-flag" src="https://flagcdn.com/gb.svg" />English</button>
           <button class="language-option"><img class="language-flag" src="https://flagcdn.com/es.svg" />Español</button>
           <button class="language-option"><img class="language-flag" src="https://flagcdn.com/fr.svg" />Français</button>
           <button class="language-option"><img class="language-flag" src="https://flagcdn.com/de.svg" />Deutsch</button>
+          <button class="language-option"><img class="language-flag" src="https://flagcdn.com/it.svg" />Italian</button>
         </div>
       </div>
-      <a href="login.html">Entrar</a>
+      <a href="login.html" data-i18n="login">Entrar</a>
     </div>
   </nav>
 
@@ -262,7 +263,7 @@
       </div>
     </div>
     <div class="content-section">
-      <p>Uma história de música, tradição e paixão que ecoa há gerações.</p>
+      <p data-i18n="tagline">Uma história de música, tradição e paixão que ecoa há gerações.</p>
     </div>
   </section>
 
@@ -270,11 +271,11 @@
   <section>
     <div class="bgimg" style="background-image: url('images/TUP_1937.jpg');">
       <div class="parallax-content">
-        <h1 class="typewriter" data-text="Origem..."></h1>
+        <h1 class="typewriter" data-i18n="section1" data-text="Origem..."></h1>
       </div>
     </div>
     <div class="content-section">
-      <p>Datam do século XIX as primeiras notícias da Tuna Académica do Porto.
+      <p data-i18n="section1_text">Datam do século XIX as primeiras notícias da Tuna Académica do Porto.
          O Orfeon Académico do Porto é fundado em 1912 e, na década de 20, Tuna e Orfeão apresentam-se diversas vezes em conjunto, nomeadamente em Madrid frente a El-Rei de Espanha e em apoteótica Digressão a Barcelona, celebrizada no livro “Do Atlântico ao Mediterrâneo”, de Parente de Figueiredo. É a partir do ano de 1928 que Tuna e Orfeão se apresentam aglutinados sob o nome “Tuna e Orfeão Académicos do Porto”.
          Em 1937, reorganizada, e fazendo já parte integrante do Orfeão Académico da Universidade do Porto, toma a designação de “Tuna Universitária do Porto”, passando a admitir apenas alunos da Universidade do Porto.</p>
     </div>
@@ -283,11 +284,11 @@
   <section>
     <div class="bgimg" style="background-image: url('images/TUP_FITU37.png');">
       <div class="parallax-content">
-        <h1 class="typewriter" data-text="Anos 80 e Festivais..."></h1>
+        <h1 class="typewriter" data-i18n="section2" data-text="Anos 80 e Festivais..."></h1>
       </div>
     </div>
     <div class="content-section">
-      <p>Em meados de 80, a Tuna Universitária do Porto, na altura constituída por elementos de ambos os géneros, é retomada, sob forte inspiração dos mesmos, inaugurando-se um novo período marcado pelo primeiro festival de tunas nacional – o FITU – Festival Internacional de Tunas Universitárias “Cidade do Porto” – e pelas gravações de:
+      <p data-i18n="section2_text">Em meados de 80, a Tuna Universitária do Porto, na altura constituída por elementos de ambos os géneros, é retomada, sob forte inspiração dos mesmos, inaugurando-se um novo período marcado pelo primeiro festival de tunas nacional – o FITU – Festival Internacional de Tunas Universitárias “Cidade do Porto” – e pelas gravações de:
          “Acordes, Harpejos, Tainadas… e Beijos” (1991)
          “VII FITU” (1994)
          “Academia” (1995)
@@ -299,11 +300,11 @@
   <section>
     <div class="bgimg" style="background-image: url('images/TUP_Murcia.jpg');">
       <div class="parallax-content">
-        <h1 class="typewriter" data-text="Expansão e Influências Musicais..."></h1>
+        <h1 class="typewriter" data-i18n="section3" data-text="Expansão e Influências Musicais..."></h1>
       </div>
     </div>
     <div class="content-section">
-      <p>Entretanto, a Tuna apresenta-se em África, América do Norte, América do Sul e na Ásia.
+      <p data-i18n="section3_text">Entretanto, a Tuna apresenta-se em África, América do Norte, América do Sul e na Ásia.
          A Universitária do Porto explora o ideário latino-americano quer ao nível do repertório bem como na introdução de instrumentos típicos dessa expressão. Sempre precursora e paradigmática, a Universitária do Porto faz por ser uma referência musical e cultural, fiel e digna representante da cidade que a viu nascer nos finais do século XIX.</p>
     </div>
   </section>
@@ -311,31 +312,34 @@
   <section>
     <div class="bgimg" style="background-image: url('images/TUP_Capas.png');">
       <div class="parallax-content">
-        <h1 class="typewriter" data-text="A próxima etapa..."></h1>
+        <h1 class="typewriter" data-i18n="section4" data-text="A próxima etapa..."></h1>
       </div>
     </div>
     <div class="content-section">
-      <p>Vamos continuar a perpetuar a excelência musical por todo o mundo na busca de novos sons, novos palcos, novos projectos e novos desafios.</p>
+      <p data-i18n="section4_text">Vamos continuar a perpetuar a excelência musical por todo o mundo na busca de novos sons, novos palcos, novos projectos e novos desafios.</p>
     </div>
   </section>
 
   <!-- Contact -->
   <div class="contact-section">
     <p>
-      <strong>Email:</strong> <a class="contact-link" href="mailto:orfeao@orfeao.up.pt">orfeao@orfeao.up.pt</a><br>
-      <strong>Morada:</strong> Rua dos Bragas, 289, 4050-123 Porto<br>
-      <strong>Telefone:</strong> (+351) 915 260 290/1<br>
-      <strong>Actuações:</strong> <a class="contact-link" href="https://orfeao.up.pt/marcacoes" target="_blank">Clique aqui</a>
+      <strong data-i18n="email">Email:</strong> <a class="contact-link" href="mailto:orfeao@orfeao.up.pt">orfeao@orfeao.up.pt</a><br>
+      <strong data-i18n="address">Morada:</strong> Rua dos Bragas, 289, 4050-123 Porto<br>
+      <strong data-i18n="phone">Telefone:</strong> (+351) 915 260 290/1<br>
+      <strong data-i18n="bookings">Actuações:</strong> <a class="contact-link" href="https://orfeao.up.pt/marcacoes" target="_blank" data-i18n="clickHere">Clique aqui</a>
     </p>
     <div>
       <a href="https://www.facebook.com/tunauniversitariaporto" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
       <a href="https://www.instagram.com/tunauniversitariaporto" target="_blank"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.youtube.com/@tunauniversitariaporto" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@tunauniversitariaporto" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.tiktok.com/@orfeaoup?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="translations/languages_main.js"></script>
+
   <script>
     AOS.init();
 
@@ -367,9 +371,39 @@
     }, { threshold: 0.6 }); // 60% of the element must be visible
 
     // Observe all .typewriter elements
-    document.querySelectorAll('.typewriter').forEach(el => {
-      observer.observe(el);
+    function applyTranslations(lang) {
+      const dict = translations[lang];
+      if (!dict) return;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (el.classList.contains('typewriter')) {
+          el.setAttribute('data-text', dict[key]);
+          el.textContent = '';
+          observer.observe(el);
+        } else {
+          el.textContent = dict[key];
+        }
+      });
+    }
+
+    function setLanguage(lang) {
+      localStorage.setItem('lang', lang);
+      applyTranslations(lang);
+    }
+
+    document.querySelectorAll('.language-option').forEach((btn, index) => {
+      const langs = ['pt', 'en', 'es', 'fr', 'de', 'it'];
+      btn.addEventListener('click', () => {
+        setLanguage(langs[index]);
+      });
     });
+
+    const savedLang = localStorage.getItem('lang') || 'pt';
+    applyTranslations(savedLang);
+
+    document.querySelectorAll('.typewriter').forEach(el => observer.observe(el));
+
   </script>
 </body>
 </html>
