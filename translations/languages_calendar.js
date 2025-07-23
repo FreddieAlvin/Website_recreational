@@ -16,6 +16,7 @@ const translations = {
       de: "Alemão",
       it: "Italiano"
     },
+    upcomingEvents: "Próximos Eventos",
     email: "Email:",
     address: "Morada:",
     phone: "Telefone:",
@@ -40,6 +41,7 @@ const translations = {
       de: "German",
       it: "Italian"
     },
+    upcomingEvents: "Upcoming Events",
     email: "Email:",
     address: "Address:",
     phone: "Phone:",
@@ -64,6 +66,7 @@ const translations = {
       de: "Alemán",
       it: "Italiano"
     },
+    upcomingEvents: "Próximos Eventos",
     email: "Correo electrónico:",
     address: "Dirección:",
     phone: "Teléfono:",
@@ -88,6 +91,7 @@ const translations = {
       de: "Allemand",
       it: "Italien"
     },
+    upcomingEvents: "Événements à venir",
     email: "Email:",
     address: "Adresse:",
     phone: "Téléphone:",
@@ -112,6 +116,7 @@ const translations = {
       de: "Deutsch",
       it: "Italienisch"
     },
+    upcomingEvents: "Bevorstehende Ereignisse",
     email: "E-Mail:",
     address: "Adresse:",
     phone: "Telefon:",
@@ -136,6 +141,7 @@ const translations = {
       de: "Tedesco",
       it: "Italiano"
     },
+    upcomingEvents: "Eventi in arrivo",
     email: "Email:",
     address: "Indirizzo:",
     phone: "Telefono:",
