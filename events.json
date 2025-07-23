@@ -1,12 +1,49 @@
-{
-  "2025-07-24": {
-    "title": "Summer Festival in Porto",
-    "description": "Join us for an unforgettable summer celebration with music, food, and fun!",
-    "image": "https://via.placeholder.com/300x200"
+[
+  {
+    "title": "Digressão ao Japão",
+    "description": "A Tuna Universitária do Porto, em parceria com o programa Erasmus+ e com a Reitoria da Universidade do Porto, irá representar a cultura portuguesa e académica na Expo 2025, no Japão.\nEntre os dias 20 e 27, viajaremos por Tóquio, Osaka, Quioto e Nara, levando a nossa música e tradição além-fronteiras.\nAcompanhem-nos nesta viagem!",
+    "image": "images/TUP_Japao.png",
+    "start": "2025-07-20",
+    "end": "2025-07-27"
   },
-  "2025-08-15": {
-    "title": "Acoustic Night",
-    "description": "Live acoustic performance at Praça dos Leões.",
-    "image": "https://via.placeholder.com/300x200"
+
+  {
+    "title": "FITU - Cidade do Porto",
+    "description": "Save the date - 11.10.25",
+    "image": "images/TUP_FITU39.png",
+    "start": "2025-10-10",
+    "end": "2025-10-11"
+  },
+
+  {
+    "title": "FITU Bracara Augusta",
+    "description": "𝐃𝐨 𝐃𝐨𝐮𝐫𝐨 𝐚𝐨 𝐌𝐢𝐧𝐡𝐨 𝐯𝐚𝐢 𝐮𝐦 𝐩𝐚𝐬𝐬𝐨… \n Em Maio, voltamos a pisar o palco do Theatro Circo para a 37ª edição do FITU BRACARA AVGVSTA da @tunauniversitariadominho. \n Fomos acompanhados pelo grupo de danças e cantares etnográficos do @orfeaoup para dançar as voltas do vira sem dar para o torto. \n Recordamos com carinho os dias bem passados em Braga. Um obrigado às nossas guias e a toda a gente que nos acolheu. Até uma próxima!",
+    "image": "images/TUP_BracaraAugusta37.png",
+    "start": "2025-05-22",
+    "end": "2025-05-24"
+  },
+
+  {
+    "title": "Tágides",
+    "description": "A belíssima cidade de Almada nunca desilude!\nNos dias 14 e 15 de março, marcámos presença na trigésima primeira edição do Tágides, a convite da @antuniafct, para um fim de semana de música, amizade e muitas memórias.\n🏆 Prémios recebidos:\n• Melhor Solista\n• 2ª Melhor Tuna\nParabéns à anTUNiA por mais uma excelente edição deste grande festival!",
+    "image": "images/TUP_Tagides31.png",
+    "start": "2025-03-14",
+    "end": "2025-03-15"
+  },
+
+  {
+    "title": "FITU - Cidade do Porto",
+    "description": "No passado dia 16 de novembro, o XXXVIII FITU ‘Cidade do Porto’ encheu o Coliseu Porto Ageas de muita música e alegria! 🎶✨\n\nO Orfeão Universitário do Porto agradece a todos os que tornaram este evento possível, nomeadamente aos grandes patrocinadores do festival: CGI, IPDJ, Caixa Geral de Depósitos, STCP, Capas Negras, Adega Leonor, Adega de Borba.\n\nGostaríamos de agradecer também a todas as tunas que estiveram presentes:\n@teup\n@antuniafct\n@estudantinauc\n@tuna_usal\nTuna Veterana do Porto 👏\n\nE um obrigado muito especial aos nossos @jograis.oup pela apresentação do festival 😁\n\n🏆 Prémios:\n• Melhor prestação vocal: @estudantinauc\n• Melhor prestação instrumental: @estudantinauc\n• Melhor Coreografia: @antuniafct\n• Melhor arranjo musical: @antuniafct\n• Grande Prémio XXXVIII FITU: @antuniafct\n\nVemo-nos na próxima edição? 👀",
+    "image": "images/TUP_Capas.png",
+    "start": "2024-11-15",
+    "end": "2024-11-16"
+  },
+
+  {
+    "title": "Certamen Internacional de Tunas Costa Cálida ",
+    "description": "Vencemos em Múrcia! 🇪🇸\nVoltámos a esta cidade encantadora 8 anos depois da última vez, para participar em mais um Certamen Internacional de Tunas \"Costa Cálida\" de nuestros hermanos da @tunamedicinamurcia.\n\nA nossa atuação, dedicada ao eterno Tuno e eterno amigo da @tunaveteranaportucalense Joaquim Matos, foi galardoada com os prémios de:\n🏆 Melhor Pandeireta\n🏆 Melhor Ronda\n🏆 Melhor Tuna\nObrigado aos nossos irmãos da Tuna de Medicina por tanta amizade, obrigado ao público e obrigado a todos os grupos presentes.\n\nMuito em breve vamos mostrar mais fotos desta semana cheia de história, música e festa.\n\nAté lá... ¡AUPA MÚRCIA BONICA Y HASTA SEMPRE!",
+    "image": "images/TUP_Murcia.jpg",
+    "start": "2024-04-01",
+    "end": "2024-04-07"
   }
-}
+]

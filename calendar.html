@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tuna Universitária do Porto</title>
+
+    <!-- Fonts & Libraries -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="icon" href="images/TUP_Icon.png" type="image/png" />
+
+    <style>
+      /* Your existing styles unchanged */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Lato", Arial, sans-serif;
+        color: #ffffff;
+        background-color: #111;
+        line-height: 1.8;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      nav {
+        background-color: #111;
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        flex-shrink: 0;
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 18px;
+        border-radius: 6px;
+        transition: background 0.3s, transform 0.2s;
+      }
+
+      nav a:hover {
+        background-color: #333;
+        transform: scale(1.05);
+      }
+
+      .language-selector {
+        position: relative;
+        color: white;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        user-select: none;
+      }
+
+      .language-dropdown {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background: #111;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        min-width: 160px;
+        z-index: 10;
+      }
+
+      .language-selector.active .language-dropdown {
+        display: block;
+      }
+
+      .language-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        color: white;
+        background: none;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .language-option:hover {
+        background: #333;
+      }
+
+      .language-flag {
+        width: 22px;
+        height: 16px;
+        border-radius: 3px;
+        border: 1px solid #fff;
+      }
+
+      main {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .calendar-container {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .calendar {
+        background: #333;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 460px;
+        max-width: 100%;
+      }
+
+      .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .calendar-header h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        text-transform: capitalize;
+      }
+
+      .calendar-header button {
+        background-color: #555;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .days-of-week,
+      .days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 7px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .day {
+        padding: 0px;
+        font-weight: bold;
+      }
+
+      .day-cell {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        user-select: none;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .day-cell:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .current-day {
+        background-color: #b19c24;
+        color: white;
+      }
+
+      .day-cell.past-day {
+        background-color: #555;
+        color: #aaa;
+        cursor: default;
+      }
+
+      .day-cell.past-day:hover {
+        background-color: #555;
+        color: #aaa;
+      }
+
+      /* Event day highlight */
+      .day-cell.event-day {
+        background-color: #b14444 !important;
+        position: relative;
+      }
+
+      .day-cell.event-day:hover {
+        background-color: #d25a5a !important;
+        color: white;
+      }
+
+      /* Event details panel */
+      .event-details {
+        background: #222;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        min-height: 350px;  /* increase from default */
+        color: white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        overflow-y: auto; /* in case content is long */
+      }
+
+      .event-details img {
+        width: 100%;
+        height: auto;              
+        border-radius: 8px;
+        margin-bottom: 10px;
+        object-fit: cover;
+        max-height: 180px;        
+      }
+
+      #eventDescription {
+        white-space: pre-wrap; /* 🔼 Makes line breaks from JSON \n show properly */
+      }
+
+      .contact-section {
+        background: #222;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: auto;
+        flex-shrink: 0;
+      }
+
+      .contact-link {
+        color: #ffd700;
+        text-decoration: none;
+      }
+
+      .contact-section .fa-brands {
+        margin: 0 12px;
+        color: #ffd700;
+        font-size: 2.6em;
+        transition: transform 0.3s;
+      }
+
+      .contact-section .fa-brands:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    
+    <script src="translations/languages_calendar.js"></script>
+
+    <nav>
+      <div class="nav-left">
+        <a href="main.html" data-i18n="start"></a>
+        <a href="calendar.html" data-i18n="calendar"></a>
+        <a href="tours.html" data-i18n="tours"></a>
+        <a href="merch.html" data-i18n="merch"></a>
+        <a href="aboutus.html" data-i18n="aboutus"></a>
+      </div>
+      <div class="nav-right">
+        <div class="language-selector" onclick="toggleLanguageDropdown(this)">
+          <span data-i18n="idioms"></span>
+          <div class="language-dropdown">
+            <button class="language-option" data-lang="pt">
+              <img class="language-flag" src="https://flagcdn.com/pt.svg" />
+              <span data-i18n="languages.pt"></span>
+            </button>
+            <button class="language-option" data-lang="en">
+              <img class="language-flag" src="https://flagcdn.com/gb.svg" />
+              <span data-i18n="languages.en"></span>
+            </button>
+            <button class="language-option" data-lang="es">
+              <img class="language-flag" src="https://flagcdn.com/es.svg" />
+              <span data-i18n="languages.es"></span>
+            </button>
+            <button class="language-option" data-lang="fr">
+              <img class="language-flag" src="https://flagcdn.com/fr.svg" />
+              <span data-i18n="languages.fr"></span>
+            </button>
+            <button class="language-option" data-lang="de">
+              <img class="language-flag" src="https://flagcdn.com/de.svg" />
+              <span data-i18n="languages.de"></span>
+            </button>
+            <button class="language-option" data-lang="it">
+              <img class="language-flag" src="https://flagcdn.com/it.svg" />
+              <span data-i18n="languages.it"></span>
+            </button>
+          </div>
+        </div>
+        <a href="login.html" data-i18n="login"></a>
+      </div>
+    </nav>
+
+    <main>
+      <div class="calendar-container">
+        <div class="calendar">
+          <div class="calendar-header">
+            <button id="prevMonthBtn" aria-label="Previous month">❮</button>
+            <h2 id="monthYear"></h2>
+            <button id="nextMonthBtn" aria-label="Next month">❯</button>
+          </div>
+          <div class="days-of-week" id="weekdays"></div>
+          <div class="days" id="days"></div>
+        </div>
+
+        <!-- Event details panel -->
+        <div class="event-details" id="eventDetails" style="display: none;">
+          <img id="eventImage" src="" alt="Event Image" />
+          <h3 id="eventTitle"></h3>
+          <p id="eventDescription"></p>
+        </div>
+      </div>
+    </main>
+
+    <div class="contact-section">
+      <p>
+        <strong data-i18n="email"></strong>
+        <a class="contact-link" href="mailto:orfeao@orfeao.up.pt">orfeao@orfeao.up.pt</a><br />
+        <strong data-i18n="address"></strong> Rua dos Bragas, 289, 4050-123 Porto<br />
+        <strong data-i18n="phone"></strong> (+351) 915 260 290/1<br />
+        <strong data-i18n="bookings"></strong>
+        <a class="contact-link" href="https://orfeao.up.pt/marcacoes" target="_blank" rel="noopener noreferrer" data-i18n="bookings_link">Agendar</a>
+      </p>
+      <p>
+        <a href="https://www.facebook.com/tunauniversitariaporto" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-square"></i></a>
+        <a href="https://www.instagram.com/tunauniversitariaporto" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@tunauniversitariaporto" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@orfeaoup?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+      </p>
+    </div>
+
+    <script>
+  let currentLang = 'pt';
+
+  function resolveNestedKey(obj, path) {
+    return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : null), obj);
+  }
+
+  function updateAllTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const value = resolveNestedKey(translations[currentLang], key);
+      if (value !== null) {
+        el.textContent = value;
+      }
+    });
+  }
+
+  function toggleLanguageDropdown(el) {
+    el.classList.toggle('active');
+  }
+
+  document.querySelectorAll('.language-option').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      currentLang = e.currentTarget.getAttribute('data-lang');
+      updateAllTranslations();
+      renderWeekdays();
+      renderCalendar();
+      document.querySelector('.language-selector').classList.remove('active');
+    });
+  });
+
+  let events = {};
+  let expandedEvents = {};
+  let today = new Date();
+  let currentMonth = today.getMonth();
+  let currentYear = today.getFullYear();
+  let selectedDate = null;
+
+  function formatDate(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
+  function renderWeekdays() {
+    const daysOfWeek = document.getElementById('weekdays');
+    daysOfWeek.innerHTML = '';
+    weekdays[currentLang].forEach(dayName => {
+      const dayElem = document.createElement('div');
+      dayElem.className = 'day';
+      dayElem.textContent = dayName.slice(0, 3);
+      daysOfWeek.appendChild(dayElem);
+    });
+  }
+
+  function renderCalendar() {
+    const daysContainer = document.getElementById('days');
+    daysContainer.innerHTML = '';
+
+    const monthYear = document.getElementById('monthYear');
+    monthYear.textContent = `${months[currentLang][currentMonth]} ${currentYear}`;
+
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+      const emptyCell = document.createElement('div');
+      emptyCell.className = 'day-cell past-day';
+      daysContainer.appendChild(emptyCell);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateObj = new Date(currentYear, currentMonth, day);
+      const dateKey = formatDate(dateObj);
+
+      const dayCell = document.createElement('div');
+      dayCell.className = 'day-cell';
+      dayCell.textContent = day;
+
+      const isPastDay = dateObj < new Date().setHours(0, 0, 0, 0);
+      const hasEvent = expandedEvents[dateKey] !== undefined;
+
+      if (isPastDay && !hasEvent) {
+        dayCell.classList.add('past-day');
+      }
+
+      if (hasEvent || !isPastDay) {
+        dayCell.addEventListener('click', () => {
+          selectedDate = dateObj;
+          showEventDetails(selectedDate);
+        });
+      }
+
+      const now = new Date();
+      if (
+        day === now.getDate() &&
+        currentMonth === now.getMonth() &&
+        currentYear === now.getFullYear()
+      ) {
+        dayCell.classList.add('current-day');
+      }
+
+      if (hasEvent) {
+        dayCell.classList.add('event-day');
+      }
+
+      daysContainer.appendChild(dayCell);
+    }
+  }
+
+  function showEventDetails(date) {
+    const eventDetails = document.getElementById('eventDetails');
+    const eventImage = document.getElementById('eventImage');
+    const eventTitle = document.getElementById('eventTitle');
+    const eventDescription = document.getElementById('eventDescription');
+
+    const key = formatDate(date);
+    const ev = expandedEvents[key];
+
+    if (ev) {
+      eventImage.src = ev.image;
+
+      if (typeof ev.title === 'object') {
+        eventTitle.textContent = ev.title[currentLang] || ev.title['en'];
+      } else {
+        eventTitle.textContent = ev.title || '';
+      }
+
+      if (typeof ev.description === 'object') {
+        eventDescription.textContent = ev.description[currentLang] || ev.description['en'];
+      } else {
+        eventDescription.textContent = ev.description || '';
+      }
+
+      eventDetails.style.display = 'block';
+    } else {
+      eventDetails.style.display = 'none';
+    }
+  }
+
+  function parseDate(dateStr) {
+    const [year, month, day] = dateStr.split('-').map(Number);
+    // Note: month - 1 because JS months are zero-based
+    return new Date(year, month - 1, day, 0, 0, 0, 0); // local midnight, no time offset
+  }
+
+
+  document.getElementById('prevMonthBtn').addEventListener('click', () => {
+    currentMonth--;
+    if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    }
+    renderCalendar();
+  });
+
+  document.getElementById('nextMonthBtn').addEventListener('click', () => {
+    currentMonth++;
+    if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    }
+    renderCalendar();
+  });
+
+  
+  fetch('events.json')
+    .then(response => response.json())
+    .then(data => {
+      let temp = {};
+
+      data.forEach(event => {
+        const startDate = parseDate(event.start);
+        const endDate = parseDate(event.end);
+
+        for (
+          let d = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+          d <= endDate;
+          d.setDate(d.getDate() + 1)
+        ) {
+          const dateKey = formatDate(d);
+          temp[dateKey] = {
+            title: event.title,
+            description: event.description,
+            image: event.image
+          };
+        }
+      });
+
+      events = temp;
+      expandedEvents = events;
+
+      updateAllTranslations();
+      renderWeekdays();
+      renderCalendar();
+    })
+    .catch(err => {
+      console.error('Error loading events:', err);
+      updateAllTranslations();
+      renderWeekdays();
+      renderCalendar();
+    });
+</script>
+</body>
+</html>
