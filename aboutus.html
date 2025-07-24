@@ -174,6 +174,17 @@
         align-items: center;
       }
 
+      .content-section.image-below .image-content {
+        max-width: 900px; /* same max width as .content-section */
+        width: 100%;      /* let it fill the container */
+        margin: 0 auto;   /* center horizontally */
+      }
+
+      .content-section.image-below .image-content img {
+        width: 100%;      /* image fills image-content width */
+        height: auto;     /* keep aspect ratio */
+        border-radius: 12px;
+      }
 
       /* Spacing on left/right */
       .content-section.image-left .image-content {
@@ -232,23 +243,102 @@
       }
 
       .image-caption {
-        margin-top: 10px;
+        margin-top: 0px; /* uniform spacing */
         font-size: 0.9em;
         color: #ccc;
         text-align: center;
         font-style: italic;
-        box-shadow: none; /* removes any shadow */
-        text-shadow: none; /* removes text shadow if any */
+        padding: 20px 30px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+
+        width: 100%;          /* fills parent container width */
+        box-sizing: border-box; /* include padding inside width */
+
+        margin-left: 0;       /* remove auto margins */
+        margin-right: 0;
       }
 
-      /* Rectangular images below text (16:9 ratio) */
-      .content-section.image-below .image-content {
-        max-width: 600px;
-        aspect-ratio: 16 / 9;
+
+      .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 600px;  /* or whatever the text width is */
+        margin: 40px auto 0 auto; /* spacing from text, centered */
         overflow: hidden;
+        box-sizing: border-box;
         border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        margin-top: 40px;
+        box-shadow: 0 20px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .carousel-images {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+      }
+
+      .carousel-images .slide {
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px; /* or whatever height your slides use */
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .carousel-images .slide img,
+      .carousel-images .slide video {
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+        object-fit: cover; /* Use 'contain' if you want full visibility instead of crop */
+        border-radius: 12px;
+        background-color: black; /* Prevent transparent bars */
+      }
+      
+      .carousel-caption {
+        background-color: rgba(255, 255, 255, 0.08);
+        padding: 20px 30px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        
+        display: block;       /* fill the container horizontally */
+        width: 100%;          /* same width as image */
+        box-sizing: border-box; /* include padding in width */
+        
+        margin: 15px 0 0 0;  /* top margin only, no side margin */
+        
+        color: #ccc;
+        font-style: italic;
+        text-align: center;
+      }
+
+
+      /* Arrows vertically centered */
+      .arrow {
+        position: absolute;
+        top: 200px; /* half of .slide height (400px) */
+        transform: translateY(-50%);
+        font-size: 2em;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+        z-index: 2;
+        border-radius: 8px;
+      }
+
+
+      .left-arrow {
+        left: 10px;
+      }
+
+      .right-arrow {
+        right: 10px;
       }
 
       /* === Contact Section === */
@@ -358,31 +448,73 @@
   
   <!-- Secções TUP Atualizadas -->
 
-  <section class="content-section image-below" data-aos="fade-up">
+  <div class="content-section image-below" data-aos="fade-up">
     <div class="text-content">
       <div class="text-box">
         <h2 data-i18n="title1"></h2>
         <p data-i18n="section1"></p>
       </div>
     </div>
-    <div class="image-content">
-      <img src="images/OUP_1922.jpg" />
-      <div class="image-caption" data-i18n="caption1"></div>
+
+    <div class="image-content carousel" data-i18n-captions='["caption1_1", "caption1_2", "caption1_3"]'>
+      <button class="arrow left-arrow" onclick="prevSlide(this)">&#10094;</button>
+      <div class="carousel-images" data-index="0">
+        <div class="slide"><img src="images/OUP_1922.jpg" /></div>
+        <div class="slide"><img src="images/Orquestra_Universitaria_Tangos_1937.jpg" /></div>
+        <div class="slide"><img src="images/TUP_1937.jpg" /></div>
+      </div>
+      <button class="arrow right-arrow" onclick="nextSlide(this)">&#10095;</button>
     </div>
-  </section>
+    <div class="image-caption"></div>
+  </div>
 
   <section class="content-section image-left" data-aos="fade-up">
-    <div class="text-content">
-      <div class="text-box">
-        <h2 data-i18n="title2"></h2>
-        <p data-i18n="section2"></p>
+  <div class="text-content">
+    <div class="text-box">
+      <h2 data-i18n="title2"></h2>
+      <p data-i18n="section2"></p>
+    </div>
+  </div>
+
+  <div class="image-content carousel" data-i18n-captions='["caption2_1","caption2_2","caption2_3","caption2_4","caption2_5","caption2_6"]'>
+    <button class="arrow left-arrow" onclick="prevSlide(this)">&#10094;</button>
+
+    <div class="carousel-images" data-index="0">
+      <div class="slide"><img src="images/EP_TUP_1964.jpg" /></div>
+      <div class="slide">
+        <video controls preload="metadata">
+          <source src="videos/Tuna Universitária do Porto - A Don Rosa Toledo.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="slide">
+        <video controls preload="metadata">
+          <source src="videos/Tuna Universitária do Porto - Madalena.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="slide">
+        <video controls preload="metadata">
+          <source src="videos/Tuna Universitária do Porto - Perdidamente.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="slide">
+        <video controls preload="metadata">
+          <source src="videos/Tuna Universitária do Porto - Timor.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="slide">
+        <video controls preload="metadata">
+          <source src="videos/Tuna Universitária do Porto - Amores de Estudante.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
-    <div class="image-content">
-      <img src="images/EP_TUP_1964.jpg" />
-      <div class="image-caption" data-i18n="caption2"></div>
-    </div>
-  </section>
+
+    <button class="arrow right-arrow" onclick="nextSlide(this)">&#10095;</button>
+    <div class="image-caption" data-i18n="caption2_1"></div>
+  </div>
+</section>
+
+
+
 
   <section class="content-section image-right" data-aos="fade-up">
     <div class="text-content">
@@ -392,8 +524,8 @@
       </div>
     </div>
     <div class="image-content">
-      <img src="images/TUP_Minerva.jpeg" />
-      <div class="image-caption" data-i18n="caption3"></div>
+      <img src="images/TUP_Minerva.jpeg"/>
+      <div class="image-caption" data-i18n="caption3_1"></div>
     </div>
   </section>
 
@@ -404,11 +536,23 @@
         <p data-i18n="section4"></p>
       </div>
     </div>
-    <div class="image-content">
-      <img src="images/TUP_Granada.png"/>
-      <div class="image-caption" data-i18n="caption4"></div>
+
+    <div class="image-content carousel" data-i18n-captions='["caption4_1", "caption4_2", "caption4_3", "caption4_4"]'>
+      <button class="arrow left-arrow" onclick="prevSlide(this)">&#10094;</button>
+      
+      <div class="carousel-images" data-index="0">
+        <div class="slide"><img src="images/TUP_Argentina_2004.png" /></div>
+        <div class="slide"><img src="images/TUP_Granada_2009.jpg" /></div>
+        <div class="slide"><img src="images/TUP_Mexico_2013.png" /></div>
+        <div class="slide"><img src="images/TUP_Murcia_2024.jpg" /></div>
+      </div>
+      
+      <button class="arrow right-arrow" onclick="nextSlide(this)">&#10095;</button>
     </div>
+
+    <div class="image-caption" data-i18n="caption4a"></div>
   </section>
+
 
   <section class="content-section image-below" data-aos="fade-up">
     <div class="text-content">
@@ -417,10 +561,31 @@
         <p data-i18n="section5"></p>
       </div>
     </div>
-    <div class="image-content">
-      <img src="images/TUP_FITU1.jpg"/>
-      <div class="image-caption" data-i18n="caption5"></div>
+
+    <div
+      class="image-content carousel"
+      data-i18n-captions='["caption5_1", "caption5_2", "caption5_3", "caption5_4"]'
+    >
+      <button class="arrow left-arrow" onclick="prevSlide(this)">&#10094;</button>
+
+      <div class="carousel-images" data-index="0">
+        <div class="slide"><img src="images/TUP_FITU1.jpg" /></div>
+        <div class="slide">
+          <video controls preload="metadata">
+            <source src="videos/Tuna Universitária do Porto (XVI FITU).mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="slide"><img src="images/TUP_FITU26.jpg" /></div>
+        <div class="slide"><img src="images/TUP_FITU29.jpg" /></div>
+      </div>
+
+
+      <button class="arrow right-arrow" onclick="nextSlide(this)">&#10095;</button>
     </div>
+
+    <!-- This will get updated dynamically via JS based on data-i18n-captions -->
+    <div class="image-caption" data-i18n="caption5_1"></div>
   </section>
 
   <section class="content-section image-below" data-aos="fade-up">
@@ -430,10 +595,20 @@
         <p data-i18n="section6"></p>
       </div>
     </div>
-    <div class="image-content">
-      <img src="images/TUP_FITU37.png"/>
-      <div class="image-caption" data-i18n="caption6"></div>
+
+    <div class="image-content carousel" data-i18n-captions='["caption6_1", "caption6_2", "caption6_3"]'>
+      <button class="arrow left-arrow" onclick="prevSlide(this)">&#10094;</button>
+      
+      <div class="carousel-images" data-index="0">
+        <div class="slide"><img src="images/TUP_FITU37.png" /></div>
+        <div class="slide"><img src="images/TUP_Tagides30.png" /></div>
+        <div class="slide"><img src="images/OUP_Queima_2025.png" /></div>
+      </div>
+      
+      <button class="arrow right-arrow" onclick="nextSlide(this)">&#10095;</button>
     </div>
+
+    <div class="image-caption" data-i18n="caption6a"></div>
   </section>
 
   <!-- Contact -->
@@ -496,19 +671,80 @@
       });
     }
 
-    function updateImageCaptions(lang) {
-      document.querySelectorAll('.image-caption[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (imageCaptions[lang] && imageCaptions[lang][key]) {
-          el.textContent = imageCaptions[lang][key];
-        }
-      });
+    function updateCarousel(carousel, direction) {
+      const images = carousel.querySelector('.carousel-images');
+      const totalSlides = images.children.length;
+      let current = parseInt(images.dataset.index) || 0;
+
+      if (direction === 'next') {
+        current = (current + 1) % totalSlides;
+      } else if (direction === 'prev') {
+        current = (current - 1 + totalSlides) % totalSlides;
+      }
+      // If direction is 'init' or unknown, keep current as is
+
+      images.dataset.index = current;
+      images.style.transform = `translateX(-${current * 100}%)`;
+
+      const captionKeys = JSON.parse(carousel.getAttribute('data-i18n-captions') || '[]');
+      const captionEl = carousel.nextElementSibling;
+      if (!captionEl || !captionEl.classList.contains('image-caption')) return;
+
+      const lang = localStorage.getItem('lang') || 'pt';
+
+      if (captionKeys[current] && imageCaptions[lang] && imageCaptions[lang][captionKeys[current]]) {
+        captionEl.textContent = imageCaptions[lang][captionKeys[current]];
+      } else {
+        captionEl.textContent = '';
+      }
+    }
+
+    function nextSlide(button) {
+      const carousel = button.closest('.carousel');
+      const images = carousel.querySelector('.carousel-images');
+      const slides = images.children;
+      const captionContainer = carousel.querySelector('.image-caption') || carousel.nextElementSibling;
+      const captions = JSON.parse(carousel.getAttribute('data-i18n-captions'));
+
+      let index = parseInt(images.getAttribute('data-index'), 10) || 0;
+      index = (index + 1) % slides.length;
+      images.style.transform = `translateX(-${index * 100}%)`;
+      images.setAttribute('data-index', index);
+
+      updateCaption(captionContainer, captions, index);
+    }
+
+    function prevSlide(button) {
+      const carousel = button.closest('.carousel');
+      const images = carousel.querySelector('.carousel-images');
+      const slides = images.children;
+      const captionContainer = carousel.querySelector('.image-caption') || carousel.nextElementSibling;
+      const captions = JSON.parse(carousel.getAttribute('data-i18n-captions'));
+
+      let index = parseInt(images.getAttribute('data-index'), 10) || 0;
+      index = (index - 1 + slides.length) % slides.length;
+      images.style.transform = `translateX(-${index * 100}%)`;
+      images.setAttribute('data-index', index);
+
+      updateCaption(captionContainer, captions, index);
     }
 
     function setLanguage(lang) {
       localStorage.setItem('lang', lang);
       applyTranslations(lang);
       updateImageCaptions(lang);  
+    }
+
+    function updateCaption(captionContainer, captions, index) {
+      if (captionContainer && captions && captions[index]) {
+        const lang = localStorage.getItem('lang') || 'pt';
+        const key = captions[index];
+        captionContainer.setAttribute('data-i18n', key);
+
+        // Use imageCaptions instead of translations
+        const captionText = imageCaptions[lang]?.[key] || key;
+        captionContainer.textContent = captionText;
+      }
     }
 
     document.querySelectorAll('.language-option').forEach((btn, index) => {
@@ -522,7 +758,11 @@
     applyTranslations(savedLang);
     updateImageCaptions(savedLang); 
 
-    document.querySelectorAll('.typewriter').forEach(el => observer.observe(el));
+    // Initialize carousel caption for all carousels on page load
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      updateCarousel(carousel, 'init');  // 'init' or any string that does not increment/decrement
+    });
+
 
   </script>
 </body>
