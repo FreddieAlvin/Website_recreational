@@ -1,0 +1,219 @@
+[
+  {
+    "title": "Um Percurso",
+    "description": "\"Um Percurso\", lançado em 1996, representa o percurso da Tuna, as viagens, as histórias, as gerações, o passado e o presente. Este CD reúne faixas que evocam a tradição académica, a nostalgia e a alma estudantil, incluindo temas como \"Adeus\", \"Carvoeiras\" e \"Saudade De Estudante\". Um registo musical que celebra as serenatas e alegrias que atravessam o tempo.",
+    "image": "images/um_percurso.png",
+    "category": "Music",
+    "filters": ["cd"],
+    "details": {
+      "format": "CD, Album, Compilation",
+      "release_year": 1996,
+      "genre": "Folk, World, & Country",
+      "tracks": [
+        {"title": "Adeus"},
+        {"title": "Carvoeiras"},
+        {"title": "Abertura De \"Carmen\""},
+        {"title": "Azul Do Céu"},
+        {"title": "Scherzzo"},
+        {"title": "Carioquinha"},
+        {"title": "A Gente Do Porto"},
+        {"title": "Maria Leviana"},
+        {"title": "Olhos Castanhos"},
+        {"title": "Adeus Coruña"},
+        {"title": "Amores De Estudante"},
+        {"title": "Suite Académica"},
+        {"title": "Saudade De Estudante"},
+        {"title": "Ondas De Douro"},
+        {"title": "Adeus Korcho Velum Pauló"},
+        {"title": "Bolero E Murcia"},
+        {"title": "Madalena"},
+        {"title": "Mar Azul"},
+        {"title": "Olhos Negros"},
+        {"title": "Samba Em Prelúdio"},
+        {"title": "A História Do Capuchinho"}
+      ],
+      "available": false
+    }
+  },
+  {
+    "title": "Tuna do Orfeão Universitário do Porto",
+    "description": "\"Tuna do Orfeão Universitário do Porto\" é o álbum auto-intitulado lançado em 1963 em formato EP e vinil. Este álbum captura a essência da tradição musical e académica da Tuna, trazendo faixas emblemáticas como \"Amores De Estudante\", \"Clavelitos\" e \"Suite Académica\". Um clássico para quem aprecia a música estudantil portuguesa e a história da Tuna.",
+    "image": "images/EP_TUP_1964.png",
+    "category": "Music",
+    "filters": ["ep", "vinyl"],
+    "details": {
+      "format": "EP, Vinyl",
+      "release_year": 1963,
+      "genre": "Folk, World, & Country",
+      "tracks": [
+        {"title": "Amores De Estudante"},
+        {"title": "Clavelitos"},
+        {"title": "Suite Académica"}
+      ],
+      "available": false
+    }
+  },
+  {
+    "title": "Concerto de Apresentação da Queima das Fitas do Porto 2000",
+    "description": "Gravação ao vivo do Concerto de Apresentação da Queima das Fitas do Porto em 2000. Este álbum celebra os estudantes, o fim de mais uma etapa nas suas vidas, com temas como \"Ondas do Douro\", \"Carvoeiras\" e \"Amores de Estudante\". Uma coletânea que representa o academismo e a alma da Queima das Fitas.",
+    "image": "images/concerto_apresentaçao_queima_fitas_2000.png",
+    "category": "Music",
+    "filters": ["cd"],
+    "details": {
+      "format": "Vinyl, LP, Album",
+      "release_year": 1991,
+      "genre": "Folk, World, & Country",
+      "tracks": [
+        {"title": "Ondas do Douro"},
+        {"title": "Charamba"},
+        {"title": "Carvoeiras"},
+        {"title": "Zarzuela Romanza di Rafael"},
+        {"title": "Janelas do Porto"},
+        {"title": "Alfosina y el Mar"},
+        {"title": "Guantanamera"},
+        {"title": "Nasci Sonhei Cresci e Amei"},
+        {"title": "Manhã de Carnaval"},
+        {"title": "La Jota de La Virgem de Los Peligros"},
+        {"title": "Timor"},
+        {"title": "Madalena"},
+        {"title": "Amores de Estudante"}
+      ],
+      "available": true
+    }
+  },
+  {
+    "title": "Acordes, Harpejos ... Tainadas E Beijos",
+    "description": "Lançado em 1991, \"Acordes, Harpejos ... Tainadas E Beijos\" reúne melodias tradicionais e alegres da cultura portuguesa. Com temas que vão desde \"Amores De Estudante\" até \"Menina Estás À Janela\", este albúm remete à tradição, às músicas de outros tempos e aos romances de jovens enamorados.",
+    "image": "images/acordes_harpejos.png",
+    "category": "Music",
+    "filters": ["cd", "lp"],
+    "details": {
+      "format": "Vinyl, LP, Album, Gat",
+      "release_year": 1991,
+      "genre": "Folk, World, & Country",
+      "tracks": [
+        {"title": "Amores De Estudante"},
+        {"title": "Adeus Coruña"},
+        {"title": "A Luz"},
+        {"title": "Cielito Tuno"},
+        {"title": "Adios A La Llanera"},
+        {"title": "Ondas Do Douro"},
+        {"title": "Marcha Turca"},
+        {"title": "O Capuchinho"},
+        {"title": "Lezíria Verde"},
+        {"title": "Menina Estás À Janela"}
+      ],
+      "available": false
+    }
+  },
+  {
+    "title": "Concerto Acústico",
+    "description": "Gravação do \"Concerto Acústico\" da Tuna Universitária do Porto, lançado em 2010. Um álbum que apresenta uma seleção intimista e vibrante de temas já conhecidos, incluindo faixas como \"Balada das Sete Saias\" e \"Alma Llanera\".",
+    "image": "images/concerto_acustico.png",
+    "category": "Music",
+    "filters": ["cd", "lp"],
+    "details": {
+      "format": "Vinyl, LP, Album, Gat",
+      "release_year": 2010,
+      "genre": "Folk, World, & Country",
+      "tracks": [
+        {"title": "Balada das Sete Saias"},
+        {"title": "Venezuela"},
+        {"title": "Perdidamente"},
+        {"title": "Alma Llanera"}
+      ],
+      "available": false
+    }
+  },
+  {
+    "title": "Estúdio Atlântico",
+    "description": "Lançado em 2021, \"Estúdio Atlântico\" percorre as viagens, as memórias e as músicas dos quatro cantos do mundo. Uma compilação moderna que reúne interpretações vibrantes de países como Venezuela, Brazil, Argentina entre outros. Músicas como \"Guantanamera\", \"Libertango\" e \"Porto Sentido\" são algumas das músicas intemporais que podem ser encontradas neste álbum.",
+    "image": "images/estudio_atlantico.png",
+    "category": "Music",
+    "filters": ["cd"],
+    "details": {
+      "format": "CD, Album, Compilation",
+      "release_year": 2021,
+      "genre": "Folk, World, & Country",
+      "tracks": [
+        {"title": "Guantanamera"},
+        {"title": "Lisboa à Noite"},
+        {"title": "Perdidamente"},
+        {"title": "Manhã de Carnaval"},
+        {"title": "Libertango"},
+        {"title": "Madalena"},
+        {"title": "Timor"},
+        {"title": "Venezuela"},
+        {"title": "Charamba"},
+        {"title": "Balada das Sete Saias"},
+        {"title": "Jamais"},
+        {"title": "Porto Sentido"}
+      ],
+      "available": true
+    }
+  },
+  {
+    "title": "Academia",
+    "description": "Como o nome sugere, \"Academia\" é uma celebração da música académica e da tradição. Lançado em 2021, este álbum representa o Orfeão e alguns dos seus vários grupos. Uma coleção de canções que vão desde o fado académico, à música tuneril, ao jazz incluindo temas como \"Sinfonia 40 (Adaptação)\", \"Fly Me To The Moon\" e \"Fado dos Olhos Claros\". Uma viagem musical que homenageia a cultura académica portuguesa.",
+    "image": "images/academia.png",
+    "category": "Music",
+    "filters": ["cd"],
+    "details": {
+      "format": "CD, Album, Compilation",
+      "release_year": 2021,
+      "genre": "Folk, World, & Country",
+      "tracks": [
+        {"title": "Academia"},
+        {"title": "Swing Low"},
+        {"title": "A Rum Tale"},
+        {"title": "Fly Me To The Moon"},
+        {"title": "On The Sunny Side Of The Street"},
+        {"title": "That Lucky Old Sun"},
+        {"title": "O Nosso Encontro"},
+        {"title": "Adeus"},
+        {"title": "Sinfonia 40 (Adaptação)"},
+        {"title": "Cavalo"},
+        {"title": "Fica A Saudade"},
+        {"title": "À Beira Mar"},
+        {"title": "Perestroika"},
+        {"title": "O Meu Desejo"},
+        {"title": "Fado dos Olhos Claros"},
+        {"title": "Rosas Brancas"},
+        {"title": "Porto Paixão"}
+      ],
+    "available": false
+    }
+  },
+  {
+    "title": "Sticker TUP (Black/White)",
+    "description": "Sticker da TUP (Black/White).",
+    "image": "images/sticker_tup_bw.png",
+    "category": "Other",
+    "filters": ["other"],
+    "available": true
+  },
+  {
+    "title": "Sticker TUP (Multicolor)",
+    "description": "Sticker da TUP (Multicolor).",
+    "image": "images/sticker_tup_multicolor.png",
+    "category": "Other",
+    "filters": ["other"],
+    "available": true
+  },
+  {
+    "title": "T-shirt FITU",
+    "description": "T-shirt comemorativa do FITU- Cidade do Porto.",
+    "image": "images/tshirt_fitu.png",
+    "category": "Other",
+    "filters": ["other"],
+    "available": true
+  },
+  {
+    "title": "Polo FITU",
+    "description": "Polo comemorativo do FITU- Cidade do Porto.",
+    "image": "images/polo_fitu.png",
+    "category": "Other",
+    "filters": ["other"],
+    "available": true
+  }
+]

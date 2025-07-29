@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tuna Universitária do Porto – Merch</title>
+
+<!-- Fonts & Libraries -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+<!-- Favicon -->
+<link rel="icon" href="images/TUP_Icon.png" type="image/png"/>
+
+<style>
+/* ——————————— Reset & Base ——————————— */
+@font-face{font-family:'custom_font';src:url('fonts/custom_font.ttf') format('truetype');font-weight:normal;font-style:normal;font-display:swap}
+html{scroll-behavior:smooth}
+body,html{height:100%;margin:0;font-family:"Lato",Arial,sans-serif;color:#fff;background:#111;line-height:1.8}
+nav{background:#111;padding:30px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.nav-left,.nav-right{display:flex;gap:10px;align-items:center}
+nav a{color:#fff;text-decoration:none;font-weight:bold;padding:10px 18px;border-radius:6px;transition:background .3s,transform .2s}
+nav a:hover{background:#333;transform:scale(1.05)}
+.language-selector{position:relative;color:#fff;font-weight:bold;padding:8px 16px;border-radius:6px;background:none;border:none;cursor:pointer;display:flex;align-items:center}
+.language-dropdown{display:none;position:absolute;right:0;top:100%;background:#111;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,0.3);min-width:160px;z-index:10}
+.language-selector.active .language-dropdown{display:block}
+.language-option{display:flex;align-items:center;gap:10px;padding:10px 20px;color:#fff;background:none;border:none;width:100%;cursor:pointer}
+.language-option:hover{background:#333}
+.language-flag{width:22px;height:16px;border-radius:3px;border:1px solid #fff}
+
+/* ————————— Merch Page ————————— */
+.page-title{
+    font-size:3.5em;
+    font-weight:bold;
+    color:#fff;
+    text-align:center;
+    margin:60px 20px 20px;
+    white-space:normal
+}
+
+.filter-menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0 30px; /* top | right/left | bottom */
+}
+
+
+.filter-menu button{
+    background:#222;
+    color:#fff;
+    border:none;
+    padding:20px 40px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:background .2s
+}
+
+.filter-menu button.active,
+.filter-menu button:hover{
+    background:#444
+}
+
+.merch-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+  justify-content: center; /* center the grid items */
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+.merch-item {
+    position: relative; /* Added for overlay positioning */
+    background:#222;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.7);
+    transition:transform .3s;
+    cursor:pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.merch-item:hover{
+    transform:scale(1.03)
+}
+
+.merch-item img{
+    max-width:100%;
+    border-radius:10px;
+    margin-bottom:15px
+}
+
+.merch-item h3{
+    font-size:1.1em;
+    margin:10px 0;
+    color:#ffffff
+}
+
+.merch-item p{
+    font-size:1.1em;
+    color:#eee;
+    min-height:60px
+}
+
+/* Out of stock overlay & blur */
+.merch-item.out-of-stock img {
+  filter: grayscale(100%) blur(2px);
+  opacity: 0.6;
+  pointer-events: none; /* disables clicking on out-of-stock items */
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+.stock-overlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 0, 0, 0.85);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1em;
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ————— Modal ————— */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    justify-content:center;
+    align-items:center;
+    z-index:2000
+}
+
+.modal-content{
+    background:#222;
+    border-radius:12px;
+    padding:30px;
+    width:90%;
+    max-width:600px;
+    color:#fff;
+    position:relative
+}
+
+.modal-close{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:1.8em;
+    color:#fff;
+    cursor:pointer
+}
+
+.modal-content h2{
+    margin-top:0;
+    color:#ffd700
+}
+
+.modal-content ul{
+    list-style:none;
+    padding:0; 
+    margin:15px 0
+}
+
+.modal-content li{
+    margin-bottom:8px;
+    color:#ddd
+}
+
+.modal-content p.desc{
+    margin-top:20px;
+    color:#ccc;
+    line-height:1.4
+}
+
+/* ————— Contact ————— */
+.contact-section{background:#222;color:#fff;text-align:center;padding:10px 0;margin-top:0}
+.contact-link{color:#ffd700;text-decoration:none}
+.contact-section .fa-brands{margin:0 12px;color:#ffd700;font-size:2.6em;transition:transform .3s}
+.contact-section .fa-brands:hover{transform:scale(1.1)}
+
+/* ————— Responsive ————— */
+@media(max-width:768px){.page-title{font-size:2.8em;margin-top:40px}.merch-container{grid-template-columns:1fr;gap:20px}}
+</style>
+</head>
+
+<body>
+<nav>
+  <div class="nav-left">
+    <a href="main.html" data-i18n="start"></a>
+    <a href="calendar.html" data-i18n="calendar"></a>
+    <a href="tours.html" data-i18n="tours"></a>
+    <a href="merch.html" data-i18n="merch"></a>
+    <a href="aboutus.html" data-i18n="aboutus"></a>
+  </div>
+  <div class="nav-right">
+      <div class="language-selector" onclick="toggleLanguageDropdown(this)">
+        <span data-i18n="idioms"></span>
+        <div class="language-dropdown">
+          <button class="language-option" data-lang="pt">
+            <img class="language-flag" src="https://flagcdn.com/pt.svg" />
+            <span data-i18n="languages.pt"></span>
+          </button>
+          <button class="language-option" data-lang="en">
+            <img class="language-flag" src="https://flagcdn.com/gb.svg" />
+            <span data-i18n="languages.en"></span>
+          </button>
+          <button class="language-option" data-lang="es">
+            <img class="language-flag" src="https://flagcdn.com/es.svg" />
+            <span data-i18n="languages.es"></span>
+          </button>
+          <button class="language-option" data-lang="fr">
+            <img class="language-flag" src="https://flagcdn.com/fr.svg" />
+            <span data-i18n="languages.fr"></span>
+          </button>
+          <button class="language-option" data-lang="de">
+            <img class="language-flag" src="https://flagcdn.com/de.svg" />
+            <span data-i18n="languages.de"></span>
+          </button>
+          <button class="language-option" data-lang="it">
+            <img class="language-flag" src="https://flagcdn.com/it.svg" />
+            <span data-i18n="languages.it"></span>
+          </button>
+        </div>
+      </div>
+      <a href="login.html" data-i18n="login"></a>
+    </div>
+</nav>
+
+<div class="filter-menu">
+  <button onclick="filterItems('all')" class="active" data-i18n="filter_all">Todos</button>
+  <button onclick="filterItems('CD')" data-i18n="filter_cd">CD</button>
+  <button onclick="filterItems('EP')" data-i18n="filter_ep">EP</button>
+  <button onclick="filterItems('LP')" data-i18n="filter_lp">LP</button>
+  <button onclick="filterItems('other')" data-i18n="filter_other">Outros</button>
+</div>
+
+<div class="merch-container" id="merch-grid"></div>
+
+<!-- Modal -->
+<div class="modal" id="detailModal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">×</span>
+    <h2 id="modal-title"></h2>
+    <ul id="modal-info"></ul>
+    <p class="desc" id="modal-desc"></p>
+  </div>
+</div>
+
+<div class="contact-section">
+  <p>
+    <strong data-i18n="email"></strong> <a class="contact-link" href="mailto:orfeao@orfeao.up.pt">orfeao@orfeao.up.pt</a><br/>
+    <strong data-i18n="address"></strong> Rua dos Bragas, 289, 4050-123 Porto<br/>
+    <strong data-i18n="phone"></strong> (+351) 915 260 290/1<br/>
+    <strong data-i18n="bookings"></strong> <a class="contact-link" href="https://orfeao.up.pt/marcacoes" target="_blank" data-i18n="clickHere"></a>
+  </p>
+  <div>
+    <a href="https://www.facebook.com/tunauniversitariaporto" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+    <a href="https://www.instagram.com/tunauniversitariaporto" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@tunauniversitariaporto" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@orfeaoup?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+  </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="translations/languages_merch.js"></script>
+<script>
+AOS.init();
+
+// ---------------------- Typewriter Observer ----------------------
+const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const text = el.getAttribute('data-text');
+          let i = 0;
+          el.textContent = ''; // clear before typing
+
+          function type() {
+            if (i < text.length) {
+              el.textContent += text.charAt(i);
+              i++;
+              setTimeout(type, 90);
+            }
+          }
+
+          type();
+          observer.unobserve(el); // stop watching after first trigger
+        }
+      });
+    }, { threshold: 0.6 });
+
+// ---------------------- Translation Logic ----------------------
+function resolveNestedKey(obj, path) {
+  return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
+}
+
+function applyTranslations(lang) {
+      const dict = translations[lang];
+      if (!dict) return;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const value = resolveNestedKey(dict, key);
+
+        if (value) {
+          if (el.classList.contains('typewriter')) {
+            el.setAttribute('data-text', value);
+            el.textContent = '';
+            observer.observe(el);
+          } else {
+            el.textContent = value;
+          }
+        }
+      });
+    }
+
+function setLanguage(lang) {
+  localStorage.setItem('lang', lang);
+  applyTranslations(lang);
+  renderMerch(); // re-render merch in new language
+}
+
+// ---------------------- Dropdown Toggle ----------------------
+function toggleLanguageDropdown(el) {
+  el.classList.toggle('active');
+}
+
+// ---------------------- Merch Data ----------------------
+let merchItems = [];
+let currentFilter = 'all';
+
+function filterItems(filter) {
+  currentFilter = filter.toLowerCase();
+  document.querySelectorAll('.filter-menu button').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick').includes(filter));
+  });
+  renderMerch();
+}
+
+function renderMerch() {
+  const grid = document.getElementById('merch-grid');
+  grid.innerHTML = '';
+  const lang = localStorage.getItem('lang') || 'pt';
+
+  // Separate available and unavailable items
+  const sortedItems = [...merchItems].sort((a, b) => {
+    const aAvailable = a.available !== false && (!a.details || a.details.available !== false);
+    const bAvailable = b.available !== false && (!b.details || b.details.available !== false);
+    return bAvailable - aAvailable; // true (1) comes before false (0)
+  });
+
+  sortedItems.forEach(item => {
+    const itemFilters = (item.filters || []).map(f => f.toLowerCase());
+    if (currentFilter === 'all' || itemFilters.includes(currentFilter)) {
+      const card = document.createElement('div');
+      const isAvailable = item.available !== false && (!item.details || item.details.available !== false);
+      card.className = 'merch-item' + (!isAvailable ? ' out-of-stock' : '');
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.title}">
+        <h3>${item.title}</h3>
+      `;
+
+      if (!isAvailable) {
+        const label = resolveNestedKey(translations[lang], 'unavailable') || 'Indisponível';
+        const overlay = document.createElement('div');
+        overlay.className = 'stock-overlay';
+        overlay.textContent = label;
+        card.appendChild(overlay);
+      }
+
+      card.onclick = () => openModal(item);
+      grid.appendChild(card);
+    }
+  });
+}
+
+
+// ---------------------- Modal ----------------------
+function openModal(item) {
+  const lang = localStorage.getItem('lang') || 'pt';
+  const title = item.title;
+  const desc = item.description || '';
+  const details = item.details || {};
+  const info = document.getElementById('modal-info');
+
+  document.getElementById('modal-title').innerText = title;
+  document.getElementById('modal-desc').innerText = desc;
+  info.innerHTML = '';
+
+  if (details.format) {
+    info.innerHTML += `<li><strong>Formato:</strong> ${details.format}</li>`;
+  }
+
+  if (details.release_year) {
+    const yearLabel = resolveNestedKey(translations[lang], 'label_year') || 'Ano';
+    info.innerHTML += `<li><strong>${yearLabel}:</strong> ${details.release_year}</li>`;
+  }
+
+  if (details.genre) {
+    info.innerHTML += `<li><strong>Género:</strong> ${details.genre}</li>`;
+  }
+
+  if (details.tracks && Array.isArray(details.tracks)) {
+    const tracksLabel = resolveNestedKey(translations[lang], 'label_tracks') || 'Faixas';
+    info.innerHTML += `<li><strong>${tracksLabel}:</strong> ${details.tracks.length}</li>`;
+    info.innerHTML += `<li><strong>Tracklist:</strong><ol>${details.tracks.map(track => `<li>${track.title}</li>`).join('')}</ol></li>`;
+  }
+
+  if (typeof item.availability === 'boolean') {
+    const availLabel = resolveNestedKey(translations[lang], 'label_avail') || 'Disponível';
+    const availValue = item.availability
+      ? resolveNestedKey(translations[lang], 'avail_yes') || 'Sim'
+      : resolveNestedKey(translations[lang], 'avail_no') || 'Não';
+    info.innerHTML += `<li><strong>${availLabel}:</strong> ${availValue}</li>`;
+  }
+
+
+  document.getElementById('detailModal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('detailModal').style.display = 'none';
+}
+
+// ---------------------- Init on DOM Load ----------------------
+document.addEventListener('DOMContentLoaded', () => {
+  const lang = localStorage.getItem('lang') || 'pt';
+  applyTranslations(lang);
+
+  // Bind language buttons
+  document.querySelectorAll('.language-option').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+    const lang = btn.getAttribute('data-lang');
+    setLanguage(lang);
+
+    const selector = btn.closest('.language-selector');
+    if (selector) selector.classList.remove('active');
+  });
+});
+
+
+  // Load merch inventory
+  fetch('inventory.json')
+    .then(res => {
+      if (!res.ok) throw new Error('Failed to load inventory.json');
+      return res.json();
+    })
+    .then(data => {
+      merchItems = data;
+      filterItems('all');
+    })
+    .catch(err => {
+      console.error('Error loading inventory.json:', err);
+    });
+});
+</script>
+
+
+</body>
+</html>
