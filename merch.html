@@ -39,6 +39,22 @@ nav a:hover{background:#333;transform:scale(1.05)}
     white-space:normal
 }
 
+.disclaimer-container {
+  padding: 10px 20px;
+  background-color: #fff8e1;
+  border: 1px solid #ffe082;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.disclaimer {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #665c00;
+}
+
 .filter-menu {
     display: flex;
     justify-content: center;
@@ -114,14 +130,14 @@ nav a:hover{background:#333;transform:scale(1.05)}
   filter: grayscale(100%) blur(2px);
   opacity: 0.6;
   pointer-events: none; /* disables clicking on out-of-stock items */
-  transition: filter 0.3s, opacity 0.3s;
+  transition: filter 0.3s;
 }
 
 .stock-overlay {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: rgba(255, 0, 0, 0.85);
+  background: rgba(207, 0, 0, 0.85);
   color: white;
   padding: 6px 12px;
   border-radius: 6px;
@@ -204,7 +220,6 @@ nav a:hover{background:#333;transform:scale(1.05)}
   <div class="nav-left">
     <a href="main.html" data-i18n="start"></a>
     <a href="calendar.html" data-i18n="calendar"></a>
-    <a href="tours.html" data-i18n="tours"></a>
     <a href="merch.html" data-i18n="merch"></a>
     <a href="aboutus.html" data-i18n="aboutus"></a>
   </div>
@@ -238,9 +253,13 @@ nav a:hover{background:#333;transform:scale(1.05)}
           </button>
         </div>
       </div>
-      <a href="login.html" data-i18n="login"></a>
     </div>
 </nav>
+
+<!-- Disclaimer -->
+  <div class="disclaimer-container">
+    <p class="disclaimer" data-i18n="disclaimer"></p>
+  </div>
 
 <div class="filter-menu">
   <button onclick="filterItems('all')" class="active" data-i18n="filter_all">Todos</button>
@@ -282,7 +301,7 @@ nav a:hover{background:#333;transform:scale(1.05)}
 <script>
 AOS.init();
 
-// ---------------------- Typewriter Observer ----------------------
+// ---------------------- Text Observer ----------------------
 const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -471,7 +490,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-
-
 </body>
 </html>

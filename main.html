@@ -1,279 +1,306 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tuna Universitária do Porto</title>
 
-    <!-- Fonts & Libraries -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tuna Universitária do Porto</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="images/TUP_Icon.png" type="image/png" />
+  <!-- Fonts & Libraries -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
-    <style>
-      @font-face {
-        font-family: 'custom_font';
-        src: url('fonts/custom_font.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
+  <!-- Favicon -->
+  <link rel="icon" href="images/TUP_Icon.png" type="image/png" />
 
-      html {
-        scroll-behavior: smooth;
-      }
+  <!-- Custom Styles -->
+  <style>
+    /* Custom font face */
+    @font-face {
+      font-family: 'custom_font';
+      src: url('fonts/custom_font.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
 
-      body,
-      html {
-        height: 100%;
-        margin: 0;
-        font-family: "Lato", Arial, sans-serif;
-        color: #ffffff;
-        background-color: #111;
-        line-height: 1.8;
-      }
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
 
-      nav {
-        background-color: #111;
-        padding: 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      }
+    /* Global body and html styles */
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      font-family: "Lato", Arial, sans-serif;
+      color: #ffffff;
+      background-color: #111;
+      line-height: 1.8;
+    }
 
-      .nav-left,
-      .nav-right {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
+    /* Navigation bar styling */
+    nav {
+      background-color: #111;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
 
-      nav a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 10px 18px;
-        border-radius: 6px;
-        transition: background 0.3s, transform 0.2s;
-      }
+    /* Navigation sections */
+    .nav-left,
+    .nav-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
 
-      nav a:hover {
-        background-color: #333;
-        transform: scale(1.05);
-      }
+    /* Navigation links */
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: background 0.3s, transform 0.2s;
+    }
 
-      .language-selector {
-        position: relative;
-        color: white;
-        font-weight: bold;
-        padding: 8px 16px;
-        border-radius: 6px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-      }
+    /* Hover effect for nav links */
+    nav a:hover {
+      background-color: #333;
+      transform: scale(1.05);
+    }
 
-      .language-dropdown {
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 100%;
-        background: #111;
-        border-radius: 6px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        min-width: 160px;
-        z-index: 10;
-      }
+    /* Language selector button */
+    .language-selector {
+      position: relative;
+      color: white;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
 
-      .language-selector.active .language-dropdown {
-        display: block;
-      }
+    /* Dropdown container for languages */
+    .language-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background: #111;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      min-width: 160px;
+      z-index: 10;
+    }
 
-      .language-option {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 20px;
-        color: white;
-        background: none;
-        border: none;
-        width: 100%;
-        cursor: pointer;
-      }
+    /* Show dropdown when active */
+    .language-selector.active .language-dropdown {
+      display: block;
+    }
 
-      .language-option:hover {
-        background: #333;
-      }
+    /* Individual language options */
+    .language-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      color: white;
+      background: none;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+    }
 
-      .language-flag {
-        width: 22px;
-        height: 16px;
-        border-radius: 3px;
-        border: 1px solid #fff;
-      }
+    /* Hover effect for language options */
+    .language-option:hover {
+      background: #333;
+    }
 
+    /* Flag icons inside language options */
+    .language-flag {
+      width: 22px;
+      height: 16px;
+      border-radius: 3px;
+      border: 1px solid #fff;
+    }
+
+    /* Background image sections with parallax effect */
+    .bgimg {
+      position: relative;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #111;
+    }
+
+    /* Dark overlay over background images */
+    .bgimg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    /* Content container over parallax backgrounds */
+    .parallax-content {
+      background: rgba(255, 255, 255, 0);
+      padding: 60px 50px;
+      border-radius: 16px;
+      max-width: 800px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+    }
+
+    /* Typewriter effect style */
+    .typewriter {
+      font-family: 'custom_font';
+      font-size: 3.5em;
+      font-weight: bold;
+      color: #ffffff;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #ffffff;
+    }
+
+    /* Content sections below background images */
+    .content-section {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 0;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 1.5em;
+      line-height: 1.6;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 200px;
+      text-align: center;
+    }
+
+    /* Contact section at page bottom */
+    .contact-section {
+      background: #222;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 0px;
+      margin-top: -10px;
+    }
+
+    /* Contact links styling */
+    .contact-link {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    /* Social media icons in contact section */
+    .contact-section .fa-brands {
+      margin: 0 12px;
+      color: #ffd700;
+      font-size: 2.6em;
+      transition: transform 0.3s;
+    }
+
+    /* Hover scale effect for social icons */
+    .contact-section .fa-brands:hover {
+      transform: scale(1.1);
+    }
+
+    /* Title without animation */
+    .plain-title {
+      font-family: 'custom_font';
+      font-size: 3.5em;
+      font-weight: bold;
+      color: #ffffff;
+      text-align: center;
+      margin-top: -70px;
+      border: none;
+      animation: none !important;
+      white-space: normal;
+    }
+
+    /* Responsive fixes */
+    @media (max-width: 768px) {
       .bgimg {
-        position: relative;
-        background-size: cover;
-        background-attachment: fixed;
-        background-position: center center;
-        background-repeat: no-repeat;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        background-color: #111;
+        background-attachment: scroll; /* Disable fixed background on small screens */
       }
-
-      .bgimg::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-      }
-
-      .parallax-content {
-        background: rgba(255, 255, 255, 0);
-        padding: 60px 50px;
-        border-radius: 16px;
-        max-width: 800px;
-        text-align: center;
-        position: relative;
-        z-index: 2;
-        color: #ffffff;
-      }
-
-      .typewriter {
-        font-family: 'custom_font';
-        font-size: 3.5em;
-        font-weight: bold;
-        color: #ffffff;
-        display: inline-block;
-        white-space: nowrap;
-        overflow: hidden;
-        border-right: 3px solid #ffffff;
-      }
-
-      .content-section {
-        max-width: 900px;
-        margin: 0 auto 40px;
-        padding: 0;
-        background: none;
-        border-radius: 0;
-        box-shadow: none;
-        font-size: 1.5em;
-        line-height: 1.6;
-        color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 200px;
-        text-align: center;
-      }
-
-      .contact-section {
-        background: #222;
-        color: #ffffff;
-        text-align: center;
-        padding: 10px 0px;
-        margin-top: -10px;
-      }
-
-      .contact-link {
-        color: #ffd700;
-        text-decoration: none;
-      }
-
-      .contact-section .fa-brands {
-        margin: 0 12px;
-        color: #ffd700;
-        font-size: 2.6em;
-        transition: transform 0.3s;
-      }
-
-      .contact-section .fa-brands:hover {
-        transform: scale(1.1);
-      }
-
-      .plain-title {
-        font-family: 'custom_font';
-        font-size: 3.5em;
-        font-weight: bold;
-        color: #ffffff;
-        text-align: center;
-        margin-top: -70px;
-        border: none;
-        animation: none !important;
-        white-space: normal;
-      }
-
-      @media (max-width: 768px) {
-        .bgimg {
-          background-attachment: scroll;
-        }
-      }
-    </style>
-  </head>
+    }
+  </style>
+</head>
 
 <body>
+  <!-- Navigation -->
   <nav>
     <div class="nav-left">
       <a href="main.html" data-i18n="start"></a>
       <a href="calendar.html" data-i18n="calendar"></a>
-      <a href="tours.html" data-i18n="tours"></a>
       <a href="merch.html" data-i18n="merch"></a>
       <a href="aboutus.html" data-i18n="aboutus"></a>
     </div>
     <div class="nav-right">
+      <!-- Language Selector -->
       <div class="language-selector" onclick="toggleLanguageDropdown(this)">
         <span data-i18n="idioms"></span>
         <div class="language-dropdown">
           <button class="language-option" data-lang="pt">
-            <img class="language-flag" src="https://flagcdn.com/pt.svg" />
+            <img class="language-flag" src="https://flagcdn.com/pt.svg" alt="Português" />
             <span data-i18n="languages.pt"></span>
           </button>
           <button class="language-option" data-lang="en">
-            <img class="language-flag" src="https://flagcdn.com/gb.svg" />
+            <img class="language-flag" src="https://flagcdn.com/gb.svg" alt="English" />
             <span data-i18n="languages.en"></span>
           </button>
           <button class="language-option" data-lang="es">
-            <img class="language-flag" src="https://flagcdn.com/es.svg" />
+            <img class="language-flag" src="https://flagcdn.com/es.svg" alt="Español" />
             <span data-i18n="languages.es"></span>
           </button>
           <button class="language-option" data-lang="fr">
-            <img class="language-flag" src="https://flagcdn.com/fr.svg" />
+            <img class="language-flag" src="https://flagcdn.com/fr.svg" alt="Français" />
             <span data-i18n="languages.fr"></span>
           </button>
           <button class="language-option" data-lang="de">
-            <img class="language-flag" src="https://flagcdn.com/de.svg" />
+            <img class="language-flag" src="https://flagcdn.com/de.svg" alt="Deutsch" />
             <span data-i18n="languages.de"></span>
           </button>
           <button class="language-option" data-lang="it">
-            <img class="language-flag" src="https://flagcdn.com/it.svg" />
+            <img class="language-flag" src="https://flagcdn.com/it.svg" alt="Italiano" />
             <span data-i18n="languages.it"></span>
           </button>
         </div>
       </div>
-      <a href="login.html" data-i18n="login"></a>
     </div>
   </nav>
 
-  <!-- Section Template -->
+  <!-- Main Sections with background images and text -->
+
   <section>
     <div class="bgimg" style="background-image: url('images/TUP_FITU36.png');">
       <div class="parallax-content">
@@ -284,7 +311,6 @@
       <p data-i18n="tagline"></p>
     </div>
   </section>
-
 
   <section>
     <div class="bgimg" style="background-image: url('images/TUP_1937.jpg');">
@@ -311,6 +337,7 @@
   <section>
     <div class="bgimg" style="background-image: url('images/TUP_Murcia_2024.jpg');">
       <div class="parallax-content">
+        <!-- data-text attribute will be updated via translation -->
         <h1 class="typewriter" data-i18n="section3" data-text="Expansão e Influências Musicais..."></h1>
       </div>
     </div>
@@ -322,6 +349,7 @@
   <section>
     <div class="bgimg" style="background-image: url('images/TUP_FITU38.png');">
       <div class="parallax-content">
+        <!-- data-text attribute will be updated via translation -->
         <h1 class="typewriter" data-i18n="section4" data-text="A próxima etapa..."></h1>
       </div>
     </div>
@@ -330,19 +358,29 @@
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <div class="contact-section">
     <p>
-      <strong data-i18n="email"></strong> <a class="contact-link" href="mailto:orfeao@orfeao.up.pt">orfeao@orfeao.up.pt</a><br>
-      <strong data-i18n="address"></strong> Rua dos Bragas, 289, 4050-123 Porto<br>
-      <strong data-i18n="phone"></strong> (+351) 915 260 290/1<br>
-      <strong data-i18n="bookings"></strong> <a class="contact-link" href="https://orfeao.up.pt/marcacoes" target="_blank" data-i18n="clickHere"></a>
+      <strong data-i18n="email"></strong>
+      <a class="contact-link" href="mailto:orfeao@orfeao.up.pt">orfeao@orfeao.up.pt</a><br />
+      <strong data-i18n="address"></strong> Rua dos Bragas, 289, 4050-123 Porto<br />
+      <strong data-i18n="phone"></strong> (+351) 915 260 290/1<br />
+      <strong data-i18n="bookings"></strong>
+      <a class="contact-link" href="https://orfeao.up.pt/marcacoes" target="_blank" data-i18n="clickHere"></a>
     </p>
     <div>
-      <a href="https://www.facebook.com/tunauniversitariaporto" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
-      <a href="https://www.instagram.com/tunauniversitariaporto" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@tunauniversitariaporto" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@orfeaoup?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.facebook.com/tunauniversitariaporto" target="_blank" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-square"></i>
+      </a>
+      <a href="https://www.instagram.com/tunauniversitariaporto" target="_blank" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/@tunauniversitariaporto" target="_blank" aria-label="YouTube">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+      <a href="https://www.tiktok.com/@orfeaoup?is_from_webapp=1&sender_device=pc" target="_blank" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
     </div>
   </div>
 
@@ -351,21 +389,24 @@
   <script src="translations/languages_main.js"></script>
 
   <script>
+    // Initialize AOS animation library
     AOS.init();
 
+    // Toggle the visibility of the language dropdown menu
     function toggleLanguageDropdown(el) {
       el.classList.toggle('active');
     }
 
-    // Typewriter effect only when element is in viewport
+    // Intersection Observer to trigger typewriter effect when element is visible
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
           const text = el.getAttribute('data-text');
           let i = 0;
-          el.textContent = ''; // clear before typing
+          el.textContent = ''; // clear existing text before typing
 
+          // Typewriter effect: types one character every 90ms
           function type() {
             if (i < text.length) {
               el.textContent += text.charAt(i);
@@ -375,16 +416,17 @@
           }
 
           type();
-          observer.unobserve(el); // stop watching after first trigger
+          observer.unobserve(el); // stop observing after animation completes
         }
       });
-    }, { threshold: 0.6 }); // 60% of the element must be visible
+    }, { threshold: 0.6 }); // Trigger when 60% visible
 
-    // Observe all .typewriter elements
+    // Helper function to safely resolve nested keys in translation objects
     function resolveNestedKey(obj, path) {
       return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
     }
 
+    // Apply translations to elements with data-i18n attribute
     function applyTranslations(lang) {
       const dict = translations[lang];
       if (!dict) return;
@@ -397,7 +439,7 @@
           if (el.classList.contains('typewriter')) {
             el.setAttribute('data-text', value);
             el.textContent = '';
-            observer.observe(el);
+            observer.observe(el); // Observe for typewriter animation
           } else {
             el.textContent = value;
           }
@@ -405,11 +447,13 @@
       });
     }
 
+    // Change language and save preference
     function setLanguage(lang) {
       localStorage.setItem('lang', lang);
       applyTranslations(lang);
     }
 
+    // Set event listeners on language options
     document.querySelectorAll('.language-option').forEach((btn, index) => {
       const langs = ['pt', 'en', 'es', 'fr', 'de', 'it'];
       btn.addEventListener('click', () => {
@@ -417,11 +461,13 @@
       });
     });
 
+    // Load saved language or default to Portuguese
     const savedLang = localStorage.getItem('lang') || 'pt';
     applyTranslations(savedLang);
 
+    // Observe all typewriter elements for initial page load
     document.querySelectorAll('.typewriter').forEach(el => observer.observe(el));
-
   </script>
 </body>
+
 </html>

@@ -187,7 +187,7 @@
   {
     "title": "Sticker TUP (Black/White)",
     "description": "Sticker da TUP (Black/White).",
-    "image": "images/sticker_tup_bw.png",
+    "image": "images/sticker_black.png",
     "category": "Other",
     "filters": ["other"],
     "available": true
@@ -195,7 +195,7 @@
   {
     "title": "Sticker TUP (Multicolor)",
     "description": "Sticker da TUP (Multicolor).",
-    "image": "images/sticker_tup_multicolor.png",
+    "image": "images/sticker_multicolor.png",
     "category": "Other",
     "filters": ["other"],
     "available": true
@@ -203,7 +203,7 @@
   {
     "title": "T-shirt FITU",
     "description": "T-shirt comemorativa do FITU- Cidade do Porto.",
-    "image": "images/tshirt_fitu.png",
+    "image": "images/acordes_harpejos.png",
     "category": "Other",
     "filters": ["other"],
     "available": true
@@ -211,7 +211,7 @@
   {
     "title": "Polo FITU",
     "description": "Polo comemorativo do FITU- Cidade do Porto.",
-    "image": "images/polo_fitu.png",
+    "image": "images/acordes_harpejos.png",
     "category": "Other",
     "filters": ["other"],
     "available": true
