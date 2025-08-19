@@ -5,6 +5,7 @@ This template includes features such as a **reactive calendar with event managem
 
 ## File Structure
 
+```bash
 Website_recreational/
 │
 ├─ index.html # Main HTML file
@@ -13,6 +14,7 @@ Website_recreational/
 ├─ fonts/ # Folder containing custom fonts
 ├─ images/ # Images used in the project
 └─ README.md # Project documentation
+```
 
 ---
 
@@ -26,18 +28,26 @@ git clone https://github.com/FreddieAlvin/Website_recreational.git
 
 2. Navigate into the project folder:
 
+```bash
 cd Website_recreational
+```
 
 3. Open main.html in your browser:
 
 Mac/Linux Terminal:
+
+```bash
 open main.html
+```
 
 Windows Explorer:
 Double-click main.html
 
 Windows Command Prompt / PowerShell:
+
+```powershell
 start main.html
+```
 
 ---
 
