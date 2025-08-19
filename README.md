@@ -56,7 +56,8 @@ start main.html
 ![Main Page](images/mainpage.png)  
 ![Calendar](images/calendar.png)
 ![Merch](images/merch.png)  
-![About Us](images/aboutus.png)
+![About Us](images/aboutus1.png)  
+![About Us - Additional](images/aboutus2.png)
 
 ---
 
