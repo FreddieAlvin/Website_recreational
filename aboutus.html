@@ -264,7 +264,7 @@
       .carousel {
         position: relative;
         width: 100%;
-        max-width: 600px;  /* or whatever the text width is */
+        max-width: 600px; 
         margin: 40px auto 0 auto; /* spacing from text, centered */
         overflow: hidden;
         box-sizing: border-box;
@@ -283,7 +283,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 400px; /* or whatever height your slides use */
+        height: 400px; 
         box-sizing: border-box;
         overflow: hidden;
       }
@@ -444,7 +444,6 @@
     </div>
   </nav>
   
-  <!-- Secções TUP Atualizadas -->
 
   <div class="content-section image-below" data-aos="fade-up">
     <div class="text-content">
@@ -679,7 +678,6 @@
       } else if (direction === 'prev') {
         current = (current - 1 + totalSlides) % totalSlides;
       }
-      // If direction is 'init' or unknown, keep current as is
 
       images.dataset.index = current;
       images.style.transform = `translateX(-${current * 100}%)`;
